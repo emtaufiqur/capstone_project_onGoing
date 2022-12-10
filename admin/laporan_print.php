@@ -18,6 +18,7 @@
 
 
  	<?php
+	$koneksi = mysqli_connect("localhost", "root", "" ,"db_keuangan");
 		if (isset($_GET['tanggal_sampai']) && isset($_GET['tanggal_dari']) && isset($_GET['kategori'])) {
 			$tgl_dari = $_GET['tanggal_dari'];
 			$tgl_sampai = $_GET['tanggal_sampai'];

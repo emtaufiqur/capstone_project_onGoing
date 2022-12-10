@@ -19,12 +19,8 @@
     <div class="login-box">
 
       <center>
-
         <h3><b>SISTEM INFROMASI KEUANGAN</b></h3>
-
-
         <br />
-
         <?php
         if (isset($_GET['alert'])) {
           if ($_GET['alert'] == "gagal") {

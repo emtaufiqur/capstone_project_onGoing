@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Administrator - Sistem Informasi Keuangan</title>
+  <title>SIP3</title>
   
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="../assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -116,7 +116,7 @@
 
           <li>
             <a href="transaksi.php">
-              <i class="fa fa-folder"></i> <span>DATA TRANSAKSI</span>
+              <i class="fa fa-folder"></i> <span>PUM-PJUM</span>
             </a>
           </li>
 

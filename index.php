@@ -14,12 +14,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class=" bg-primary">
+<body style="background: linear-gradient(90deg, #fec163 0%, #de4313 100%);">
   <div class="container">
     <div class="login-box">
 
       <center>
-        <h3><b>SISTEM INFROMASI KEUANGAN</b></h3>
+        <h3><b>Sistem Informasi PUM, PJUM & P2D</b></h3>
         <br />
         <?php
         if (isset($_GET['alert'])) {
@@ -36,13 +36,9 @@
 
       <div class="login-box-body">
 
-        <div class="text-center"> <img src="/keuangan2/assets/logo.ico" style="max-width:30%;">
+      <div class="text-center"> <img src="/keuangan/gambar/sistem//logoRbw.png" style="max-width:50%;">
+        <h5><Strong>PT Regista Bunga Wijaya Cabang Surabaya</Strong></h5>
           <br>
-
-          <span style="color: Black;">
-            <center>
-              <h4><B>Finance Apps</B></h4>
-            </center>
           </span></p>
           <span style="color: green;">
             <center>
@@ -59,10 +55,7 @@
               <input type="password" class="form-control" placeholder="Password" name="password" required="required" autocomplete="off">
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="row">
-              <div class="col-xs-offset-8 col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-              </div>
+            <input type="submit" name="submit" class="btn btn-primary btn-user btn-block" value="Login">
             </div>
           </form>
 
@@ -72,7 +65,7 @@
 
     <span style="color: white;">
       <center>
-        <h5>copyright 2020 @nblwarehouse</h5>
+        <h5>Developed by VITech Groub</h5>
       </center>
     </span></p>
 

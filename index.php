@@ -19,6 +19,7 @@
     <div class="login-box">
 
       <center>
+
         <h3><b>Sistem Informasi PUM, PJUM & P2D</b></h3>
         <br />
         <?php

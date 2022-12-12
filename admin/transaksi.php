@@ -4,8 +4,8 @@
 
   <section class="content-header">
     <h1>
-      Transaksi
-      <small>Data Transaksi</small>
+      PUM-PJUM
+      <small>Data Transaksi PUM-PJUM</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,11 +19,11 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Transaksi Pemasukan & Pengeluaran</h3>
+            <h3 class="box-title">Transaksi Pemasukan & Pengeluaran PUM-PJUM</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-plus"></i> &nbsp Tambah Transaksi
+                <i class="fa fa-plus"></i> &nbsp Tambah PUM-PJUM
               </button>
             </div><hr>
             <?php 
@@ -64,7 +64,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title" id="exampleModalLabel">Tambah Transaksi</h4>
+                      <h4 class="modal-title" id="exampleModalLabel">Tambah Transaksi PUM-PJUM</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -86,7 +86,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label>Kategori</label>
+                        <label>Project</label>
                         <select name="kategori" class="form-control" required="required">
                           <option value="">- Pilih -</option>
                           <?php 
@@ -116,10 +116,10 @@
                         <small>File yang di perbolehkan *PDF | *JPG | *jpeg </small>
                       </div>
 
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label>Rekening Bank</label>
                         <select name="bank" class="form-control" required="required">
-                          <option value="">- Pilih -</option>
+                          <option value="">- Pilih -</option> -->
                           <?php 
                           $bank = mysqli_query($koneksi,"SELECT * FROM bank");
                           while($b = mysqli_fetch_array($bank)){
@@ -148,10 +148,10 @@
                   <tr>
                     <th width="1%" rowspan="2">NO</th>
                     <th width="10%" rowspan="2" class="text-center">TANGGAL</th>
-                    <th rowspan="2" class="text-center">KATEGORI</th>
+                    <th rowspan="2" class="text-center">PROJECT</th>
                     <th rowspan="2" class="text-center">KETERANGAN</th>
-                    <th colspan="2" class="text-center">JENIS</th>
-                    <th rowspan="2" width="10%" class="text-center">OPSI</th>
+                    <th colspan="2" class="text-center">TYPE TRANSAKSI</th>
+                    <th rowspan="2" width="10%" class="text-center">AKSI</th>
                   </tr>
                   <tr>
                     <th class="text-center">PEMASUKAN</th>
@@ -209,7 +209,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h4 class="modal-title" id="exampleModalLabel">Edit transaksi</h4>
+                                  <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi PUM-PJUM</h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -232,7 +232,7 @@
                                   </div>
 
                                   <div class="form-group" style="width:100%;margin-bottom:20px">
-                                    <label>Kategori</label>
+                                    <label>Project</label>
                                     <select name="kategori" style="width:100%" class="form-control" required="required">
                                       <option value="">- Pilih -</option>
                                       <?php 
@@ -263,10 +263,10 @@
                                     <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>";?> tidak dirubah kosongkan saja</p>
                                   </div>
 
-                                  <div class="form-group" style="width:100%;margin-bottom:20px">
+                                  <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
                                     <label>Rekening Bank</label>
                                     <select name="bank" class="form-control" required="required" style="width:100%">
-                                      <option value="">- Pilih -</option>
+                                      <option value="">- Pilih -</option> -->
                                       <?php 
                                       $bank = mysqli_query($koneksi,"SELECT * FROM bank");
                                       while($b = mysqli_fetch_array($bank)){

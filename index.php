@@ -66,7 +66,7 @@
 
     <span style="color: white;">
       <center>
-        <h5>Developed by VITech Groub</h5>
+        <h5>Developed by VITech Group</h5>
       </center>
     </span></p>
 

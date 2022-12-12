@@ -4,8 +4,8 @@
 
   <section class="content-header">
     <h1>
-      Hutang
-      <small>Data Hutang</small>
+      P2D
+      <small>Data P2D</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,28 +19,43 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Catatan Hutang</h3>
+            <h3 class="box-title">Catatan P2D</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-plus"></i> &nbsp Tambah Hutang
+                <i class="fa fa-plus"></i> &nbsp Tambah Data P2D
               </button>
             </div>
           </div>
           <div class="box-body">
 
-            <!-- Modal -->
+            <!-- Tambah -->
             <form action="hutang_act.php" method="post">
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title" id="exampleModalLabel">Tambah Hutang</h4>
+                      <h4 class="modal-title" id="exampleModalLabel">Tambah Data P2D</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
+
+                    <div class="form-group">
+                        <label>Project</label>
+                        <select name="kategori" class="form-control" required="required">
+                          <option value="">- Pilih -</option>
+                          <?php 
+                          $kategori = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori ASC");
+                          while($k = mysqli_fetch_array($kategori)){
+                            ?>
+                            <option value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori']; ?></option>
+                            <?php 
+                          }
+                          ?>
+                        </select>
+                      </div>
 
                       <div class="form-group">
                         <label>Tanggal</label>
@@ -75,9 +90,10 @@
                     <th width="1%">NO</th>
                     <th width="1%">KODE</th>
                     <th width="10%" class="text-center">TANGGAL</th>
+                    <!-- <th width="10%" class="text-center">PROJECT</th> -->
                     <th class="text-center">KETERANGAN</th>
                     <th class="text-center">NOMINAL</th>
-                    <th width="10%" class="text-center">OPSI</th>
+                    <th width="10%" class="text-center">AKSI</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -89,7 +105,7 @@
                     ?>
                     <tr>
                       <td class="text-center"><?php echo $no++; ?></td>
-                      <td>HTG-000<?php echo $d['hutang_id']; ?></td>
+                      <td>P2D-000<?php echo $d['hutang_id']; ?></td>
                       <td class="text-center"><?php echo date('d-m-Y', strtotime($d['hutang_tanggal'])); ?></td>
                       <td><?php echo $d['hutang_keterangan']; ?></td>
                       <td class="text-center"><?php echo "Rp. ".number_format($d['hutang_nominal'])." ,-"; ?></td>

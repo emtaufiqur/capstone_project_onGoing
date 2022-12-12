@@ -4,8 +4,8 @@
 
   <section class="content-header">
     <h1>
-      Kategori
-      <small>Data kategori</small>
+      Project
+      <small>Data project</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,11 +19,11 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Kategori Transaksi Keuangan</h3>
+            <h3 class="box-title">Kategori Project Transaksi Keuangan</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-plus"></i> &nbsp Tambah Kategori
+                <i class="fa fa-plus"></i> &nbsp Tambah Project
               </button>
             </div>
           </div>
@@ -35,7 +35,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Tambah Kategori</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Tambah Project</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -43,8 +43,8 @@
                     <div class="modal-body">
 
                       <div class="form-group">
-                        <label>Nama Kategori</label>
-                        <input type="text" name="kategori" required="required" class="form-control" placeholder="Nama Kategori ..">
+                        <label>Nama Project</label>
+                        <input type="text" name="kategori" required="required" class="form-control" placeholder="Nama Project ..">
                       </div>
 
                     </div>
@@ -63,8 +63,8 @@
                 <thead>
                   <tr>
                     <th width="1%">NO</th>
-                    <th>NAMA</th>
-                    <th width="10%">OPSI</th>
+                    <th>NAMA PROJECT</th>
+                    <th width="10%">AKSI</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,7 +97,7 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Edit Kategori</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Edit Kategori Project</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -105,7 +105,7 @@
                                 <div class="modal-body">
 
                                   <div class="form-group" style="width:100%">
-                                    <label>Nama Kategori</label>
+                                    <label>Nama Project</label>
                                     <input type="hidden" name="id" required="required" class="form-control" placeholder="Nama Kategori .." value="<?php echo $d['kategori_id']; ?>">
                                     <input type="text" name="kategori" required="required" class="form-control" placeholder="Nama Kategori .." value="<?php echo $d['kategori']; ?>" style="width:100%">
                                   </div>

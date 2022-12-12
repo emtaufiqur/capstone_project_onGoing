@@ -45,7 +45,7 @@
     <header class="main-header">
       <a href="index.php" class="logo">
         <span class="logo-mini"><b><i class="fa fa-money"></i></b> </span>
-        <span class="logo-lg"><b>Keuangan</b>App</span>
+        <span class="logo-lg"><b>App SIP3</b></span>
       </a>
       <nav class="navbar navbar-static-top">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -88,7 +88,7 @@
             $profil = mysqli_fetch_assoc($profil);
             if($profil['user_foto'] == ""){ 
               ?>
-              <img src="../gambar/sistem/user.png" class="img-circle">
+              <img src="../gambar/sistem/logoRbw.png" class="img-circle">
             <?php }else{ ?>
               <img src="../gambar/user/<?php echo $profil['user_foto'] ?>" class="img-circle" style="max-height:45px">
             <?php } ?>
@@ -110,43 +110,49 @@
 
           <li>
             <a href="kategori.php">
-              <i class="fa fa-folder"></i> <span>DATA KATEGORI</span>
+              <i class="fa fa-folder"></i> <span>DATA PROJECT</span>
             </a>
           </li>
 
           <li>
             <a href="transaksi.php">
-              <i class="fa fa-folder"></i> <span>PUM-PJUM</span>
+              <i class="fa fa-hand-paper-o"></i> <span>PUM-PJUM</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="hutang.php">
+              <i class="fa fa-hand-paper-o"></i> <span>P2D</span>
             </a>
           </li>
 
           <li class="treeview">
-            <a href="#">
+            <!-- <a href="#">
               <i class="fa fa-hand-paper-o"></i>
-              <span>HUTANG PIUTANG</span>
+              <span>P2D</span> -->
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu" style="display: none;">
               <li><a href="hutang.php"><i class="fa fa-circle-o"></i> Catatan Hutang</a></li>
-              <li><a href="piutang.php"><i class="fa fa-circle-o"></i> Catatan Piutang</a></li>
+              <!-- <li><a href="piutang.php"><i class="fa fa-circle-o"></i> Catatan Piutang</a></li> -->
             </ul>
           </li>
 
-          <li>
+          <!-- <li>
             <a href="bank.php">
               <i class="fa fa-building"></i> <span>REKENING BANK</span>
             </a>
-          </li>
+          </li> -->
 
           <li class="treeview">
-            <a href="#">
+            <!-- <a href="#">
               <i class="fa fa-users"></i>
               <span>DATA PENGGUNA</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
-              </span>
+              </span> -->
             </a>
             <ul class="treeview-menu" style="display: none;">
               <li><a href="user.php"><i class="fa fa-circle-o"></i> Data Pengguna</a></li>
@@ -160,17 +166,17 @@
             </a>
           </li>
 
-          <li>
+          <!-- <li>
             <a href="gantipassword.php">
               <i class="fa fa-lock"></i> <span>GANTI PASSWORD</span>
             </a>
-          </li>
+          </li> -->
 
-          <li>
+          <!-- <li>
             <a href="logout.php">
               <i class="fa fa-sign-out"></i> <span>LOGOUT</span>
             </a>
-          </li>
+          </li> -->
           
         </ul>
       </section>

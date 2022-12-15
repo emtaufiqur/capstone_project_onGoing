@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body style=" background: -webkit-linear-gradient(to right, #03001e, #7303c0, #ec38bc, #fdeff9);">
+<body style=" background: linear-gradient(90deg, #fec163 0%, #de4313 100%);">
   <div class="container">
     <div class="login-box">
 

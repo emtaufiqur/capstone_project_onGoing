@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="bg-primery">
+<body style="background: linear-gradient(to right, #159957, #155799);">
   <div class="container">
     <div class="login-box">
 

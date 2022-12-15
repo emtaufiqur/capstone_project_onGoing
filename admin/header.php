@@ -116,13 +116,13 @@
 
           <li>
             <a href="transaksi.php">
-              <i class="fa fa-hand-paper-o"></i> <span>PUM-PJUM</span>
+              <i class="fa fa-book"></i> <span>PUM-PJUM</span>
             </a>
           </li>
 
           <li>
             <a href="hutang.php">
-              <i class="fa fa-hand-paper-o"></i> <span>P2D</span>
+              <i class="fa fa-envelope-open"></i> <span>P2D</span>
             </a>
           </li>
 

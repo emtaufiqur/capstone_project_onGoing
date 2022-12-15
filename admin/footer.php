@@ -3,7 +3,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2019</strong> - Sistem Informasi Laporan Keuangan
+    <strong>Copyright &copy; 2022</strong> - Sistem Informasi PUM, PJUM & P2D
   </footer>
 
   

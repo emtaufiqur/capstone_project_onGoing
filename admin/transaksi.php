@@ -146,16 +146,14 @@
               <table class="table table-bordered table-striped" id="table-datatable">
                 <thead>
                   <tr>
-                    <th width="1%" rowspan="2">NO</th>
-                    <th width="10%" rowspan="2" class="text-center">TANGGAL</th>
-                    <th rowspan="2" class="text-center">PROJECT</th>
-                    <th rowspan="2" class="text-center">KETERANGAN</th>
-                    <th colspan="2" class="text-center">TYPE TRANSAKSI</th>
-                    <th rowspan="2" width="10%" class="text-center">AKSI</th>
-                  </tr>
-                  <tr>
+                    <th class="text-center">NO</th>
+                    <th class="text-center">TANGGAL</th>
+                    <th class="text-center">PROJECT</th>
+                    <th class="text-center">KETERANGAN</th>
+                    <!-- <th colspan="2" class="text-center">TYPE TRANSAKSI</th> -->
                     <th class="text-center">PEMASUKAN</th>
                     <th class="text-center">PENGELUARAN</th>
+                    <th rowspan="2" class="text-center">AKSI</th>
                   </tr>
                 </thead>
 

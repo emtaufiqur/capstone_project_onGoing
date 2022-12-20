@@ -30,7 +30,7 @@
   ?>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 
   <style>
     #table-datatable {
@@ -65,7 +65,7 @@
                   ?>
                   <img src="../gambar/sistem/user.png" class="user-image">
                 <?php }else{ ?>
-                  <img src="../gambar/user/<?php echo $profil['user_foto'] ?>" class="user-image">
+                  <!-- <img src="../gambar/user/<?php echo $profil['user_foto'] ?>" class="user-image"> -->
                 <?php } ?>
                 <span class="hidden-xs"><?php echo $_SESSION['nama']; ?> - <?php echo $_SESSION['level']; ?></span>
               </a>
@@ -80,7 +80,7 @@
 
     <aside class="main-sidebar">
       <section class="sidebar">
-        <div class="user-panel">
+        <!-- <div class="user-panel">
           <div class="pull-left image">
             <?php 
             $id_user = $_SESSION['id'];
@@ -97,7 +97,7 @@
             <p><?php echo $_SESSION['nama']; ?></p>
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
-        </div>
+        </div> -->
 
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>

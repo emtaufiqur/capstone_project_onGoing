@@ -47,7 +47,7 @@
                         <select name="kategori" class="form-control" required="required">
                           <option value="">- Pilih -</option>
                           <?php 
-                          $kategori = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori ASC");
+                          $kategori = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori ASC") or die (mysqli_error($koneksi));
                           while($k = mysqli_fetch_array($kategori)){
                             ?>
                             <option value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori']; ?></option>
@@ -72,6 +72,7 @@
                         <textarea name="keterangan" class="form-control" rows="4"></textarea>
                       </div>
 
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -88,27 +89,38 @@
                 <thead>
                   <tr>
                     <th width="1%">NO</th>
-                    <th width="1%">KODE</th>
+                    <th width="3%">KODE</th>
                     <th width="10%" class="text-center">TANGGAL</th>
-                    <!-- <th width="10%" class="text-center">PROJECT</th> -->
+                    <th width="10%" class="text-center">PROJECT</th>
                     <th class="text-center">KETERANGAN</th>
                     <th class="text-center">NOMINAL</th>
                     <th width="10%" class="text-center">AKSI</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                   <?php 
                   include '../koneksi.php';
                   $no=1;
-                  $data = mysqli_query($koneksi,"SELECT * FROM hutang");
+                  $data = mysqli_query($koneksi,"SELECT h.hutang_id, 
+                  h.hutang_tanggal, 
+                  h.hutang_nominal, 
+                  h.hutang_keterangan, 
+                  k.kategori FROM 
+                  kategori AS k 
+                  JOIN hutang AS h 
+                  ON hutang_id = k.kategori_id") or die (mysqli_error($koneksi));
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
-                      <td class="text-center"><?php echo $no++; ?></td>
+                      <td class="text-center">
+                      <?php echo $no++; ?></td>
                       <td>P2D-000<?php echo $d['hutang_id']; ?></td>
                       <td class="text-center"><?php echo date('d-m-Y', strtotime($d['hutang_tanggal'])); ?></td>
+                      <td><?php echo $d['kategori']; ?></td>
                       <td><?php echo $d['hutang_keterangan']; ?></td>
                       <td class="text-center"><?php echo "Rp. ".number_format($d['hutang_nominal'])." ,-"; ?></td>
+                      
                       <td>    
 
                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_hutang_<?php echo $d['hutang_id'] ?>">
@@ -198,4 +210,4 @@
 </section>
 
 </div>
-<?php include 'footer.php'; ?>s
+<?php include 'footer.php'; ?>

@@ -19,7 +19,7 @@
     <div class="row">
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-green">
+        <div class="small-box " style="background: linear-gradient(to left, #11998e, #38ef7d);">
           <div class="inner">
             <?php 
             $tanggal = date('Y-m-d');
@@ -37,7 +37,7 @@
       </div>
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-blue">
+        <div class="small-box" style="background: linear-gradient(to left, #11998e, #38ef7d);" >
           <div class="inner">
             <?php 
             $bulan = date('m');
@@ -55,7 +55,7 @@
       </div>
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-orange">
+        <div class="small-box" style="background: linear-gradient(to left, #11998e, #38ef7d);">
           <div class="inner">
             <?php 
             $tahun = date('Y');
@@ -73,7 +73,7 @@
       </div>
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-black">
+        <div class="small-box" style="background: linear-gradient(to left, #11998e, #38ef7d);">
           <div class="inner">
             <?php 
             $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi WHERE transaksi_jenis='Pemasukan'");
@@ -92,7 +92,7 @@
       
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-red">
+        <div class="small-box" style=" background: linear-gradient(to right, #fdc830, #f37335); ">
           <div class="inner">
             <?php 
             $tanggal = date('Y-m-d');
@@ -111,7 +111,7 @@
       </div>
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-red">
+        <div class="small-box" style=" background: linear-gradient(to right, #fdc830, #f37335);">
           <div class="inner">
             <?php 
             $bulan = date('m');
@@ -130,7 +130,7 @@
       </div>
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-red">
+        <div class="small-box" style=" background: linear-gradient(to right, #fdc830, #f37335);">
           <div class="inner">
             <?php 
             $tahun = date('Y');
@@ -149,7 +149,7 @@
       </div>
 
       <div class="col-lg-3 col-xs-6">
-        <div class="small-box bg-black">
+        <div class="small-box" style=" background: linear-gradient(to right, #fdc830, #f37335);">
           <div class="inner">
             <?php 
             $pengeluaran = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) as total_pengeluaran FROM transaksi WHERE transaksi_jenis='pengeluaran'");
@@ -235,7 +235,7 @@
 
 
         <!-- Calendar -->
-        <div class="box box-solid bg-green-gradient">
+        <div class="box box-solid">
           <div class="box-header">
             <i class="fa fa-calendar"></i>
             <h3 class="box-title">Kalender</h3>

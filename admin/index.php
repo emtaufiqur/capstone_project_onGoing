@@ -5,12 +5,12 @@
   <section class="content-header">
     <h1>
       Dashboard
-      <small>Control panel</small>
+      <small>PUM, PJUM, P2D</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li class="active">Dashboard</li>
-    </ol>
+    </ol> -->
   </section>
 
 
@@ -27,12 +27,12 @@
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
-            <p>Pemasukan Hari Ini</p>
+            <p><b>PUM</b> Hari Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -45,12 +45,12 @@
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
-            <p>Pemasukan Bulan Ini</p>
+            <p><b>PUM</b> Bulan Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -63,12 +63,12 @@
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
-            <p>Pemasukan Tahun Ini</p>
+            <p><b>PUM</b> Tahun Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -80,12 +80,12 @@
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
-            <p>Seluruh Pemasukan</p>
+            <p>Seluruh <b>PUM</b></p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -101,12 +101,12 @@
             ?>
             
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pengeluaran'])." ,-" ?></h4>
-            <p>Pengeluaran Hari Ini</p>
+            <p><b>PJUM</b> Hari Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -120,12 +120,12 @@
             ?>
             
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pengeluaran'])." ,-" ?></h4>
-            <p>Pengeluaran Bulan Ini</p>
+            <p><b>PJUM</b> Bulan Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -139,12 +139,12 @@
             ?>
             
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pengeluaran'])." ,-" ?></h4>
-            <p>Pengeluaran Tahun Ini</p>
+            <p><b>PJUM</b> Tahun Ini</p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -156,12 +156,12 @@
             $p = mysqli_fetch_assoc($pengeluaran);
             ?>
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pengeluaran'])." ,-" ?></h4>
-            <p>Seluruh Pengeluaran</p>
+            <p>Seluruh <b>PJUM</b></p>
           </div>
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <!-- <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> -->
         </div>
       </div>
 
@@ -200,7 +200,7 @@
 
           <ul class="nav nav-tabs pull-right">
             <!-- <li><a href="#tab2" data-toggle="tab">Pemasukan</a></li> -->
-            <li class="active"><a href="#tab1" data-toggle="tab">Pemasukan & Pengeluaran</a></li>
+            <li class="active"><a href="#tab1" data-toggle="tab">PUM & PJUM</a></li>
             <li class="pull-left header">Grafik</li>
           </ul>
 
@@ -209,15 +209,15 @@
             <div class="chart tab-pane active" id="tab1">
 
               
-              <h4 class="text-center">Grafik Data Pemasukan & Pengeluaran Per <b>Bulan</b></h4>
-              <canvas id="grafik1" style="position: relative; height: 300px;"></canvas>
+              <h4 class="text-center">Grafik Data PUM vs PJUM Per <b>Bulan</b></h4>
+              <canvas id="grafik1" style="position: relative; height: 200px;"></canvas>
 
               <br/>
               <br/>
               <br/>
 
-              <h4 class="text-center">Grafik Data Pemasukan & Pengeluaran Per <b>Tahun</b></h4>
-              <canvas id="grafik2" style="position: relative; height: 300px;"></canvas>
+              <h4 class="text-center">Grafik Data PUM & PJUM Per <b>Tahun</b></h4>
+              <canvas id="grafik2" style="position: relative; height: 200px;"></canvas>
 
             </div>
             <div class="chart tab-pane" id="tab2" style="position: relative; height: 300px;">

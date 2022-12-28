@@ -1,7 +1,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer bg-green">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 1.0
+      <b>PT Regista Bunga Wijaya</b> Surabaya
     </div>
     <strong>Copyright &copy; 2022</strong> - Sistem Informasi PUM, PJUM & P2D
   </footer>

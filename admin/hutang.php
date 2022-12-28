@@ -44,7 +44,7 @@
 
                     <div class="form-group">
                         <label>Project</label>
-                        <select name="kategori" class="form-control" required="required">
+                        <select name="kategori_id" class="form-control" required="required">
                           <option value="">- Pilih -</option>
                           <?php 
                           $kategori = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori ASC") or die (mysqli_error($koneksi));
@@ -94,8 +94,7 @@
                     <th width="10%" class="text-center">PROJECT</th>
                     <th class="text-center">KETERANGAN</th>
                     <th class="text-center">NOMINAL</th>
-                    <th width="10%" class="text-center">AKSI</th>
-                    
+                    <th width="10%" class="text-center">AKSI</th>         
                   </tr>
                 </thead>
                 <tbody>
@@ -110,7 +109,7 @@
                   k.kode FROM 
                   hutang AS h 
                   JOIN kategori AS k 
-                  ON h.hutang_id = k.kategori_id") or die (mysqli_error($koneksi));
+                  ON h.kategori_id = k.kategori_id") or die (mysqli_error($koneksi));
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
@@ -122,6 +121,7 @@
                       <td><?php echo $d['hutang_keterangan']; ?></td>
                       <td class="text-center"><?php echo "Rp. ".number_format($d['hutang_nominal'])." ,-"; ?></td>
                       <td>
+
                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_hutang_<?php echo $d['hutang_id'] ?>">
                         <i class="fa fa-cog"></i>
                       </button>
@@ -129,10 +129,8 @@
                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_hutang_<?php echo $d['hutang_id'] ?>">
                         <i class="fa fa-trash"></i>
                       </button>
-                      </td>
-                    </tr>
-
-
+                      
+                      
                       <form action="hutang_update.php" method="post">
                         <div class="modal fade" id="edit_hutang_<?php echo $d['hutang_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">

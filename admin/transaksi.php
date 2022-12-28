@@ -7,10 +7,10 @@
       PUM-PJUM
       <small>Data Transaksi PUM-PJUM</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li class="active">Dashboard</li>
-    </ol>
+    </ol> -->
   </section>
 
   <section class="content">
@@ -19,7 +19,7 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Transaksi Pemasukan & Pengeluaran PUM-PJUM</h3>
+            <h3 class="box-title">Transaksi PUM-PJUM</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">

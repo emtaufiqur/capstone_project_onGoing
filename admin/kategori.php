@@ -7,10 +7,10 @@
       Project
       <small>Data project</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li class="active">Dashboard</li>
-    </ol>
+    </ol> -->
   </section>
 
   <section class="content">
@@ -19,7 +19,7 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Kategori Project Transaksi Keuangan</h3>
+            <h3 class="box-title">Project Transaksi PUM, PJUM, P2D</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
@@ -47,6 +47,11 @@
                         <input type="text" name="kategori" required="required" class="form-control" placeholder="Nama Project ..">
                       </div>
 
+                      <div class="form-group">
+                        <label>Kode Project</label>
+                        <input type="text" name="kategori" required="required" class="form-control" placeholder="Kode Project ..">
+                      </div>
+
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -64,6 +69,7 @@
                   <tr>
                     <th width="1%">NO</th>
                     <th>NAMA PROJECT</th>
+                    <th>KODE PROJECT</th>
                     <th width="10%">AKSI</th>
                   </tr>
                 </thead>
@@ -77,6 +83,7 @@
                     <tr>
                       <td><?php echo $no++; ?></td>
                       <td><?php echo $d['kategori']; ?></td>
+                      <td><?php echo $d['kode']; ?></td>
                       <td>    
                         <?php 
                         if($d['kategori_id'] != 1){

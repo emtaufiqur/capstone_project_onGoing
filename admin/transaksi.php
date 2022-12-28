@@ -170,7 +170,7 @@
                       <td><?php echo $d['kategori']; ?></td>
                       <td><?php echo $d['transaksi_keterangan']; ?></td>
                       <td class="text-center">
-                        <?php 9
+                        <?php 
                         if($d['transaksi_jenis'] == "Pemasukan"){
                           echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
                         }else{

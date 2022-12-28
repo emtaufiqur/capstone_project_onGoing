@@ -20,7 +20,7 @@
 
       <center>
 
-        <h3><b>Sistem Informasi PUM, PJUM & P2D</b></h3>
+        <h3><b><font color="white"> Sistem Informasi PUM, PJUM & P2D</font></b></h3>
         <br />
         <?php
         if (isset($_GET['alert'])) {
@@ -38,7 +38,7 @@
       <div class="login-box-body">
 
       <div class="text-center"> <img src="/keuangan/gambar/sistem//logoRbw.png" style="max-width:50%;">
-        <h5><Strong>PT Regista Bunga Wijaya Cabang Surabaya</Strong></h5>
+        <h5><Strong>PT Regista Bunga Wijaya <br> Cabang Surabaya</Strong></h5>
           <br>
           </span></p>
           <span style="color: green;">
@@ -66,7 +66,7 @@
 
     <span style="color: white;">
       <center>
-        <h5>Developed by VITech Group</h5>
+        <h5>Developed by VITech - 2022</h5>
       </center>
     </span></p>
 

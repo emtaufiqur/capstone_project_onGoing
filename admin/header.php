@@ -45,7 +45,7 @@
     <header class="main-header">
       <a href="index.php" class="logo">
         <span class="logo-mini"><b><i class="fa fa-money"></i></b> </span>
-        <span class="logo-lg"><b>App SIP3</b></span>
+        <span class="logo-lg"><b>SIP3</b></span>
       </a>
       <nav class="navbar navbar-static-top">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -100,17 +100,11 @@
         </div> -->
 
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MAIN NAVIGATION</li>
+          <!-- <li class="header">MAIN NAVIGATION</li> -->
 
           <li>
             <a href="index.php">
               <i class="fa fa-dashboard"></i> <span>DASHBOARD</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="kategori.php">
-              <i class="fa fa-folder"></i> <span>DATA PROJECT</span>
             </a>
           </li>
 
@@ -123,6 +117,12 @@
           <li>
             <a href="hutang.php">
               <i class="fa fa-envelope-open"></i> <span>P2D</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="kategori.php">
+              <i class="fa fa-folder"></i> <span>DATA PROJECT</span>
             </a>
           </li>
 

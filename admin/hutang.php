@@ -7,10 +7,10 @@
       P2D
       <small>Data P2D</small>
     </h1>
-    <ol class="breadcrumb">
+    <!-- <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
       <li class="active">Dashboard</li>
-    </ol>
+    </ol> -->
   </section>
 
   <section class="content">
@@ -19,7 +19,7 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Catatan P2D</h3>
+            <h3 class="box-title">Transaksi P2D</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
@@ -89,7 +89,7 @@
                 <thead>
                   <tr>
                     <th width="1%">NO</th>
-                    <th width="3%">KODE</th>
+                    <th width="15%">KODE</th>
                     <th width="10%" class="text-center">TANGGAL</th>
                     <th width="10%" class="text-center">PROJECT</th>
                     <th class="text-center">KETERANGAN</th>
@@ -106,23 +106,22 @@
                   h.hutang_tanggal, 
                   h.hutang_nominal, 
                   h.hutang_keterangan, 
-                  k.kategori FROM 
-                  kategori AS k 
-                  JOIN hutang AS h 
-                  ON hutang_id = k.kategori_id") or die (mysqli_error($koneksi));
+                  k.kategori,
+                  k.kode FROM 
+                  hutang AS h 
+                  JOIN kategori AS k 
+                  ON h.hutang_id = k.kategori_id") or die (mysqli_error($koneksi));
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
                       <td class="text-center">
                       <?php echo $no++; ?></td>
-                      <td>P2D-000<?php echo $d['hutang_id']; ?></td>
+                      <td>P2D-0<?php echo $d['hutang_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['hutang_tanggal'])); ?>/<?php echo date('Y', strtotime($d['hutang_tanggal'])); ?></td>
                       <td class="text-center"><?php echo date('d-m-Y', strtotime($d['hutang_tanggal'])); ?></td>
                       <td><?php echo $d['kategori']; ?></td>
                       <td><?php echo $d['hutang_keterangan']; ?></td>
                       <td class="text-center"><?php echo "Rp. ".number_format($d['hutang_nominal'])." ,-"; ?></td>
-                      
-                      <td>    
-
+                      <td>
                        <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_hutang_<?php echo $d['hutang_id'] ?>">
                         <i class="fa fa-cog"></i>
                       </button>
@@ -130,6 +129,8 @@
                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_hutang_<?php echo $d['hutang_id'] ?>">
                         <i class="fa fa-trash"></i>
                       </button>
+                      </td>
+                    </tr>
 
 
                       <form action="hutang_update.php" method="post">

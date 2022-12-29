@@ -112,12 +112,6 @@
             <a href="transaksi_pum.php">
               <i class="fa fa-book"></i> <span>PUM</span>
             </a>
-            </li>
-
-          <li>
-            <a href="transaksi.php">
-              <i class="fa fa-book"></i> <span>PJUM</span>
-            </a>
           </li>
 
           <li>

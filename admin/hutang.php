@@ -113,8 +113,7 @@
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
-                      <td class="text-center">
-                      <?php echo $no++; ?></td>
+                      <td class="text-center"><?php echo $no++; ?></td>
                       <td>P2D-0<?php echo $d['hutang_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['hutang_tanggal'])); ?>/<?php echo date('Y', strtotime($d['hutang_tanggal'])); ?></td>
                       <td class="text-center"><?php echo date('d-m-Y', strtotime($d['hutang_tanggal'])); ?></td>
                       <td><?php echo $d['kategori']; ?></td>

@@ -4,8 +4,8 @@
 
   <section class="content-header">
     <h1>
-      PUM-PJUM
-      <small>Data Transaksi PUM-PJUM</small>
+      PUM
+      <small>Data Transaksi PUM</small>
     </h1>
     <!-- <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,11 +19,11 @@
         <div class="box box-info">
 
           <div class="box-header">
-            <h3 class="box-title">Transaksi PUM-PJUM</h3>
+            <h3 class="box-title">Transaksi PUM</h3>
             <div class="btn-group pull-right">            
 
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-plus"></i> &nbsp Tambah PUM-PJUM
+                <i class="fa fa-plus"></i> &nbsp Tambah PUM
               </button>
             </div><hr>
             <?php 
@@ -59,12 +59,12 @@
           <div class="box-body">
 
             <!-- Modal -->
-            <form action="transaksi_act.php" method="post" enctype="multipart/form-data">
+            <form action="transaksi_act_pum.php" method="post" enctype="multipart/form-data">
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title" id="exampleModalLabel">Tambah Transaksi PUM-PJUM</h4>
+                      <h4 class="modal-title" id="exampleModalLabel">Tambah Transaksi PUM</h4>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -72,16 +72,22 @@
                     <div class="modal-body">
 
                       <div class="form-group">
-                        <label>Tanggal</label>
+                        <label>Tanggal Transaksi</label>
                         <input type="text" name="tanggal" required="required" class="form-control datepicker2">
                       </div>
 
                       <div class="form-group">
-                        <label>Jenis</label>
+                        <label>Status</label>
                         <select name="jenis" class="form-control" required="required">
                           <option value="">- Pilih -</option>
-                          <option value="Pemasukan">Pemasukan</option>
-                          <option value="Pengeluaran">Pengeluaran</option>
+                          <?php 
+                          $jenis = mysqli_query($koneksi,"SELECT * FROM transaksi ORDER BY transaksi_jenis ASC");
+                          while($j = mysqli_fetch_array($jenis)){
+                            ?>
+                            <option value="<?php echo $j['transaksi_id']; ?>"><?php echo $j['transaksi_jenis']; ?></option>
+                            <?php 
+                          }
+                          ?>
                         </select>
                       </div>
 
@@ -108,6 +114,11 @@
                       <div class="form-group">
                         <label>Keterangan</label>
                         <textarea name="keterangan" class="form-control" rows="3"></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Tanggal Kebutuhan</label>
+                        <input type="text" name="tanggal_kebutuhan" required="required" class="form-control datepicker2">
                       </div>
 
                       <div class="form-group">
@@ -147,12 +158,14 @@
                 <thead>
                   <tr>
                     <th class="text-center">NO</th>
-                    <th class="text-center">TANGGAL</th>
+                    <th class="text-center">KODE</th>
+                    <th class="text-center">TANGGAL TRANSAKSI</th>
                     <th class="text-center">PROJECT</th>
-                    <th class="text-center">KETERANGAN</th>
+                    <th class="text-center">KEBUTUHAN DANA</th>
+                    <th class="text-center">TANGGAL KEBUTUHAN</th>
                     <!-- <th colspan="2" class="text-center">TYPE TRANSAKSI</th> -->
-                    <th class="text-center">PEMASUKAN</th>
-                    <th class="text-center">PENGELUARAN</th>
+                    <th class="text-center">NOMINAL</th>
+                    <th class="text-center">STATUS</th>
                     <th rowspan="2" class="text-center">AKSI</th>
                   </tr>
                 </thead>
@@ -161,26 +174,22 @@
                   <?php 
                   include '../koneksi.php';
                   $no=1;
-                  $data = mysqli_query($koneksi,"SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori order by transaksi_id desc");
+                  $data = mysqli_query($koneksi,"SELECT * FROM transaksi,kategori 
+                  where kategori_id=transaksi_kategori order by transaksi_id desc");
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
                       <td class="text-center"><?php echo $no++; ?></td>
+                      <td>PUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
                       <td class="text-center"><?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?></td>
                       <td><?php echo $d['kategori']; ?></td>
                       <td><?php echo $d['transaksi_keterangan']; ?></td>
-                      <td class="text-center">
-                        <?php 
-                        if($d['transaksi_jenis'] == "Pemasukan"){
-                          echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
-                        }else{
-                          echo "-";
-                        }
-                        ?>
+                      <td class="text-center"><?php echo date('d-m-Y', strtotime($d['transaksi_tanggal_kebutuhan'])); ?></td>
+                      <td class="text-center"><?php echo "Rp. ".number_format($d['transaksi_nominal'])." ,-"; ?></td>
                       </td>
                       <td class="text-center">
                         <?php 
-                        if($d['transaksi_jenis'] == "Pengeluaran"){
+                        if($d['transaksi_jenis'] == "NON OHC"){
                           echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
                         }else{
                           echo "-";
@@ -202,12 +211,12 @@
                         
 
 
-                        <form action="transaksi_update.php" method="post" enctype="multipart/form-data">
+                        <form action="transaksi_update_pum.php" method="post" enctype="multipart/form-data">
                           <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi PUM-PJUM</h4>
+                                  <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi PUM</h4>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -215,7 +224,7 @@
                                 <div class="modal-body">
 
                                   <div class="form-group" style="width:100%;margin-bottom:20px">
-                                    <label>Tanggal</label>
+                                    <label>Tanggal Transaksi</label>
                                     <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
                                     <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
                                   </div>
@@ -224,8 +233,8 @@
                                     <label>Jenis</label>
                                     <select name="jenis" style="width:100%" class="form-control" required="required">
                                       <option value="">- Pilih -</option>
-                                      <option <?php if($d['transaksi_jenis'] == "Pemasukan"){echo "selected='selected'";} ?> value="Pemasukan">Pemasukan</option>
-                                      <option <?php if($d['transaksi_jenis'] == "Pengeluaran"){echo "selected='selected'";} ?> value="Pengeluaran">Pengeluaran</option>
+                                      <option <?php if($d['transaksi_jenis'] == "OHC"){echo "selected='selected'";} ?> value="Pemasukan">OHC</option>
+                                      <option <?php if($d['transaksi_jenis'] == "NON OHC"){echo "selected='selected'";} ?> value="Pengeluaran">NON OHC</option>
                                     </select>
                                   </div>
 
@@ -252,6 +261,12 @@
                                   <div class="form-group" style="width:100%;margin-bottom:20px">
                                     <label>Keterangan</label>
                                     <textarea name="keterangan" style="width:100%" class="form-control" rows="4"><?php echo $d['transaksi_keterangan'] ?></textarea>
+                                  </div>
+
+                                  <div class="form-group" style="width:100%;margin-bottom:20px">
+                                    <label>Tanggal Kebutuhan</label>
+                                    <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
+                                    <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
                                   </div>
 
                                   <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -323,7 +338,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                <a href="transaksi_hapus.php?id=<?php echo $d['transaksi_id'] ?>" class="btn btn-primary">Hapus</a>
+                                <a href="transaksi_hapus_pum.php?id=<?php echo $d['transaksi_id'] ?>" class="btn btn-primary">Hapus</a>
                               </div>
                             </div>
                           </div>

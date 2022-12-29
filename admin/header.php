@@ -115,6 +115,12 @@
           </li>
 
           <li>
+            <a href="transaksi_pjum.php">
+              <i class="fa fa-book"></i> <span>PJUM</span>
+            </a>
+          </li>
+
+          <li>
             <a href="hutang.php">
               <i class="fa fa-envelope-open"></i> <span>P2D</span>
             </a>

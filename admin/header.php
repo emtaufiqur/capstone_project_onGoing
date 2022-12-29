@@ -67,7 +67,7 @@
                 <?php }else{ ?>
                   <!-- <img src="../gambar/user/<?php echo $profil['user_foto'] ?>" class="user-image"> -->
                 <?php } ?>
-                <span class="hidden-xs"><?php echo $_SESSION['nama']; ?> - <?php echo $_SESSION['level']; ?></span>
+                <!-- <span class="hidden-xs"><?php echo $_SESSION['nama']; ?> - <?php echo $_SESSION['level']; ?></span> -->
               </a>
             </li>
             <li>
@@ -109,8 +109,14 @@
           </li>
 
           <li>
+            <a href="transaksi_pum.php">
+              <i class="fa fa-book"></i> <span>PUM</span>
+            </a>
+            </li>
+
+          <li>
             <a href="transaksi.php">
-              <i class="fa fa-book"></i> <span>PUM-PJUM</span>
+              <i class="fa fa-book"></i> <span>PJUM</span>
             </a>
           </li>
 

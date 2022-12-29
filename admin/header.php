@@ -67,7 +67,7 @@
                 <?php }else{ ?>
                   <!-- <img src="../gambar/user/<?php echo $profil['user_foto'] ?>" class="user-image"> -->
                 <?php } ?>
-                <span class="hidden-xs"><?php echo $_SESSION['nama']; ?> - <?php echo $_SESSION['level']; ?></span>
+                <!-- <span class="hidden-xs"><?php echo $_SESSION['nama']; ?> - <?php echo $_SESSION['level']; ?></span> -->
               </a>
             </li>
             <li>

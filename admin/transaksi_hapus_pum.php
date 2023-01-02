@@ -29,4 +29,4 @@ if($jenis == "Pemasukan"){
 
 
 mysqli_query($koneksi, "delete from transaksi where transaksi_id='$id'");
-header("location:transaksi.php");
+header("location:transaksi_pum.php");

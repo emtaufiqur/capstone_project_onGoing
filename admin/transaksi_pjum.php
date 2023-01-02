@@ -60,7 +60,7 @@
                     <div class="box-body">
 
                         <!-- Modal -->
-                        <form action="transaksi_act_pum.php" method="post" enctype="multipart/form-data">
+                        <form action="transaksi_act_pjum.php" method="post" enctype="multipart/form-data">
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -112,6 +112,11 @@
                                             </div>
 
                                             <div class="form-group">
+                                                <label>Tanggal Kebutuhan</label>
+                                                <input type="text" name="tanggal_kebutuhan" required="required" class="form-control datepicker2">
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label>Upload File</label>
                                                 <input type="file" name="trnfoto" required="required" class="form-control">
                                                 <small>File yang di perbolehkan *PDF | *JPG | *jpeg </small>
@@ -120,19 +125,19 @@
                                             <!-- <div class="form-group">
                         <label>Rekening Bank</label>
                         <select name="bank" class="form-control" required="required">
-                          <option value="">- Pilih -</option> -->
-                                            <?php
-                                            $bank = mysqli_query($koneksi, "SELECT * FROM bank");
-                                            while ($b = mysqli_fetch_array($bank)) {
-                                            ?>
+                        <!-- <option value="">- Pilih -</option> -->
+                                            <!-- <?php
+                                                    $bank = mysqli_query($koneksi, "SELECT * FROM bank");
+                                                    while ($b = mysqli_fetch_array($bank)) {
+                                                    ?>
                                                 <option value="<?php echo $b['bank_id']; ?>"><?php echo $b['bank_nama']; ?></option>
                                             <?php
-                                            }
-                                            ?>
+                                                    }
+                                            ?> -->
                                             </select>
                                         </div>
 
-                                    </div>
+                                    </div> -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -155,8 +160,8 @@
                                     <!-- <th class="text-center">TANGGAL KEBUTUHAN</th> -->
                                     <!-- <th colspan="2" class="text-center">TYPE TRANSAKSI</th> -->
                                     <th class="text-center">PUM</th>
-                                    <th class="text-center">PJUM</th>
-                                    <th class="text-center">STATUS</th>
+                                    <th class="text-center">NOMINAL</th>
+                                    <th class="text-center">SELISIH</th>
                                     <th rowspan="2" class="text-center">AKSI</th>
                                 </tr>
                             </thead>
@@ -165,7 +170,8 @@
                                 <?php
                                 include '../koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori order by transaksi_id desc");
+                                $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
+                                where transaksi_jenis = 'Pengeluaran' AND kategori_id=transaksi_kategori order by transaksi_id desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
@@ -174,17 +180,10 @@
                                         <td class="text-center"><?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?></td>
                                         <td><?php echo $d['kategori']; ?></td>
                                         <td><?php echo $d['transaksi_keterangan']; ?></td>
-                                        <td></td>
                                         <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
-                                        </td>
-                                        <td class="text-center">
-                                            <?php
-                                            if ($d['transaksi_jenis'] == "NON OHC") {
-                                                echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-";
-                                            } else {
-                                                echo "-";
-                                            }
-                                            ?>
+                                        <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
+                                        <td>
+
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_transaksi_<?php echo $d['transaksi_id'] ?>">
@@ -201,7 +200,7 @@
 
 
 
-                                            <form action="transaksi_update_pum.php" method="post" enctype="multipart/form-data">
+                                            <form action="transaksi_update_pjum.php" method="post" enctype="multipart/form-data">
                                                 <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -214,21 +213,17 @@
                                                             <div class="modal-body">
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Tanggal Transaksi</label>
+                                                                    <label>Tanggal Laporan</label>
                                                                     <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
                                                                     <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
                                                                 </div>
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Jenis</label>
-                                                                    <select name="jenis" style="width:100%" class="form-control" required="required">
-                                                                        <option value="">- Pilih -</option>
-                                                                        <option <?php if ($d['transaksi_jenis'] == "OHC") {
-                                                                                    echo "selected='selected'";
-                                                                                } ?> value="Pemasukan">OHC</option>
-                                                                        <option <?php if ($d['transaksi_jenis'] == "NON OHC") {
-                                                                                    echo "selected='selected'";
-                                                                                } ?> value="Pengeluaran">NON OHC</option>
+                                                                    <select name="jenis" class="form-control" required="required">
+                                                                        <option value="Pengeluaran">- PJUM -</option>
+                                                                        <!-- <option value="Pemasukan">Pemasukan</option>
+                                                                        <option value="Pengeluaran">Pengeluaran</option> -->
                                                                     </select>
                                                                 </div>
 
@@ -336,7 +331,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                    <a href="transaksi_hapus_pum.php?id=<?php echo $d['transaksi_id'] ?>" class="btn btn-primary">Hapus</a>
+                                    <a href="transaksi_hapus_pjum.php?id=<?php echo $d['transaksi_id'] ?>" class="btn btn-primary">Hapus</a>
                                 </div>
                             </div>
                         </div>

@@ -30,18 +30,18 @@ if($jenis == "Pemasukan"){
 }
 
 if($filename == ""){
-	mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_kebutuhan','','$bank')")or die(mysqli_error($koneksi));
-	header("location:transaksi_pum.php?alert=berhasil");
+	mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_kebutuhan','$bank')")or die(mysqli_error($koneksi));
+	header("location:transaksi_pjum.php?alert=berhasil");
 }else{
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 	if(!in_array($ext,$allowed) ) {
-		header("location:transaksi_pum.php?alert=gagal");
+		header("location:transaksi_pjum.php?alert=gagal");
 	}else{
 		move_uploaded_file($_FILES['trnfoto']['tmp_name'], '../gambar/bukti/'.$rand.'_'.$filename);
 		$file_gambar = $rand.'_'.$filename;
 		mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_kebutuhan','$file_gambar','$bank')");
-		header("location:transaksi_pum.php?alert=berhasil");
+		header("location:transaksi_pjum.php?alert=berhasil");
 	}
 }
 

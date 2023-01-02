@@ -19,7 +19,7 @@
                 <div class="box box-info">
 
                     <div class="box-header">
-                        <h3 class="box-title">Transaksi PUJM</h3>
+                        <h3 class="box-title">Transaksi PJUM</h3>
                         <div class="btn-group pull-right">
 
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
@@ -59,7 +59,7 @@
                     </div>
                     <div class="box-body">
 
-                        <!-- Modal -->
+                        <!-- Tambah -->
                         <form action="transaksi_act_pjum.php" method="post" enctype="multipart/form-data">
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">

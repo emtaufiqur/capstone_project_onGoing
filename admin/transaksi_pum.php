@@ -59,7 +59,7 @@
           </div>
           <div class="box-body">
 
-            <!-- Modal -->
+            <!-- Tambah -->
             <form action="transaksi_act_pum.php" method="post" enctype="multipart/form-data">
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -81,6 +81,7 @@
                         <label>Jenis</label>
                         <select name="jenis" class="form-control" required="required">
                           <option value="Pemasukan">- PUM -</option>
+                          <option value="Pemasukan">- PJUM -</option>
                           <!-- <?php
                                 $jenis = mysqli_query($koneksi, "SELECT * FROM transaksi ORDER BY transaksi_jenis ASC");
                                 while ($j = mysqli_fetch_array($jenis)) {
@@ -203,7 +204,7 @@
                       </button>
 
 
-
+                      <!-- Tambah -->
                       <form action="transaksi_update_pum.php" method="post" enctype="multipart/form-data">
                         <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
@@ -222,7 +223,7 @@
                                   <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
                                 </div>
 
-                                <div class="form-group" style="width:100%;margin-bottom:20px">
+                                <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Jenis</label>
                                   <select name="jenis" style="width:100%" class="form-control" required="required">
                                     <option value="">- Pilih -</option>
@@ -233,7 +234,7 @@
                                               echo "selected='selected'";
                                             } ?> value="Pengeluaran">NON OHC</option>
                                   </select>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Project</label>
@@ -264,8 +265,8 @@
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Tanggal Kebutuhan</label>
-                                  <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
-                                  <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
+                                  <input type="hidden" name="tanggal_kebutuhan" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
+                                  <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
                                 </div>
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">

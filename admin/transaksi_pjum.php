@@ -81,6 +81,7 @@
                                                 <label>Jenis</label>
                                                 <select name="jenis" class="form-control" required="required">
                                                     <option value="Pengeluaran">- PJUM -</option>
+                                                    <option value="Pengeluaran">- PUM -</option>
                                                     <!-- <option value="Pemasukan">Pemasukan</option>
                                                     <option value="Pengeluaran">Pengeluaran</option> -->
                                                 </select>
@@ -159,8 +160,8 @@
                                     <th class="text-center">KEBUTUHAN DANA</th>
                                     <!-- <th class="text-center">TANGGAL KEBUTUHAN</th> -->
                                     <!-- <th colspan="2" class="text-center">TYPE TRANSAKSI</th> -->
-                                    <th class="text-center">PUM</th>
-                                    <th class="text-center">NOMINAL</th>
+                                    <th class="text-center">NOMINAL PUM</th>
+                                    <th class="text-center">NOMINAL PJUM</th>
                                     <th class="text-center">SELISIH</th>
                                     <th rowspan="2" class="text-center">AKSI</th>
                                 </tr>
@@ -170,8 +171,10 @@
                                 <?php
                                 include '../koneksi.php';
                                 $no = 1;
+                                // $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
+                                // where transaksi_jenis = 'Pengeluaran' AND kategori_id=transaksi_kategori order by transaksi_id desc");
                                 $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
-                                where transaksi_jenis = 'Pengeluaran' AND kategori_id=transaksi_kategori order by transaksi_id desc");
+                                where kategori_id=transaksi_kategori order by transaksi_id desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
@@ -205,7 +208,7 @@
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi PUM</h4>
+                                                                <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi PJUM</h4>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>

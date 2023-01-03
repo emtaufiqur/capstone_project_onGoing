@@ -176,7 +176,7 @@
                 include '../koneksi.php';
                 $no = 1;
                 $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
-                  where kategori_id=transaksi_kategori order by transaksi_id desc");
+                where transaksi_jenis = 'Pemasukan' AND kategori_id=transaksi_kategori order by transaksi_id desc");
                 while ($d = mysqli_fetch_array($data)) {
                 ?>
                   <tr>

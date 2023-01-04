@@ -81,7 +81,7 @@
                         <label>Jenis</label>
                         <select name="jenis" class="form-control" required="required">
                           <option value="Pemasukan">- PUM -</option>
-                          <option value="Pemasukan">- PJUM -</option>
+                          <!-- <option value="Pemasukan">- PJUM -</option> -->
                           <!-- <?php
                                 $jenis = mysqli_query($koneksi, "SELECT * FROM transaksi ORDER BY transaksi_jenis ASC");
                                 while ($j = mysqli_fetch_array($jenis)) {

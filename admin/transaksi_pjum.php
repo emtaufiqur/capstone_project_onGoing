@@ -87,6 +87,9 @@
                                                 </select>
                                             </div>
 
+
+                                            
+
                                             <div class="form-group">
                                                 <label>Project</label>
                                                 <select name="kategori" class="form-control" required="required">
@@ -171,8 +174,10 @@
                                 <?php
                                 include '../koneksi.php';
                                 $no = 1;
+                                $total_pemasukan=0;
+                                $total_pengeluaran=0;
                                 // $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
-                                // where transaksi_jenis = 'Pengeluaran' AND kategori_id=transaksi_kategori order by transaksi_id desc");
+                                // where transaksi_jenis = 'Pemasukan' AND kategori_id=transaksi_kategori order by transaksi_id desc");
                                 $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
                                 where kategori_id=transaksi_kategori order by transaksi_id desc");
                                 while ($d = mysqli_fetch_array($data)) {
@@ -183,11 +188,42 @@
                                         <td class="text-center"><?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?></td>
                                         <td><?php echo $d['kategori']; ?></td>
                                         <td><?php echo $d['transaksi_keterangan']; ?></td>
-                                        <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
-                                        <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
-                                        <td>
+                                        <!-- <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
+                                        <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td> -->
+                                        
 
+                                        <td class="text-center">
+                                            <?php 
+                                            if($d['transaksi_jenis'] == "Pemasukan"){
+                                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
+                                            }else{
+                                            echo "-";
+                                            }
+                                            ?>
                                         </td>
+                                        <td class="text-center">
+                                            <?php 
+                                            if($d['transaksi_jenis'] == "Pengeluaran"){
+                                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
+                                            }else{
+                                            echo "-";
+                                            }
+                                            ?>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <?php
+
+                                            if($d['transaksi_jenis'] == "Pemasukan"){
+                                                $total_pemasukan += $d['transaksi_nominal'];
+                                                
+                                              }elseif($d['transaksi_jenis'] == "Pengeluaran"){
+                                                $total_pengeluaran += $d['transaksi_nominal'];
+                                              }
+                                            ?>
+                                            <?php echo "Rp. ".number_format($total_pemasukan - $total_pengeluaran)." ,-"; ?>
+                                        </td>
+                                        
                                         <td>
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_transaksi_<?php echo $d['transaksi_id'] ?>">
                                                 <i class="fa fa-cog"></i>
@@ -202,7 +238,7 @@
                                             </button>
 
 
-
+                                            <!-- Update -->
                                             <form action="transaksi_update_pjum.php" method="post" enctype="multipart/form-data">
                                                 <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -317,7 +353,7 @@
                         </div>
                     </div>
 
-                    <!-- modal hapus -->
+                    <!-- hapus -->
                     <div class="modal fade" id="hapus_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

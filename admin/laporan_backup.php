@@ -133,8 +133,8 @@
                       <th colspan="2" class="text-center">JENIS</th>
                     </tr>
                     <tr>
-                      <th class="text-center">PEMASUKAN</th>
-                      <th class="text-center">PENGELUARAN</th>
+                      <th class="text-center">PUM</th>
+                      <th class="text-center">PJUM</th>
                     </tr>
                   </thead>
                   <tbody>

@@ -120,7 +120,7 @@
                 </div>
               </div>
 
-              <a href="laporan_pdf.php?tanggal_dari=<?php echo $tgl_dari ?>&tanggal_sampai=<?php echo $tgl_sampai ?>&kategori=<?php echo $kategori ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a>
+              <!-- <a href="laporan_pdf.php?tanggal_dari=<?php echo $tgl_dari ?>&tanggal_sampai=<?php echo $tgl_sampai ?>&kategori=<?php echo $kategori ?>" target="_blank" class="btn btn-sm btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp CETAK PDF</a> -->
               <a href="laporan_print.php?tanggal_dari=<?php echo $tgl_dari ?>&tanggal_sampai=<?php echo $tgl_sampai ?>&kategori=<?php echo $kategori ?>" target="_blank" class="btn btn-sm btn-primary"><i class="fa fa-print"></i> &nbsp PRINT</a>
               <div class="table-responsive">
                 <table class="table table-bordered table-striped">
@@ -133,8 +133,8 @@
                       <th colspan="2" class="text-center">JENIS</th>
                     </tr>
                     <tr>
-                      <th class="text-center">PEMASUKAN</th>
-                      <th class="text-center">PENGELUARAN</th>
+                      <th class="text-center">PUM</th>
+                      <th class="text-center">PJUM</th>
                     </tr>
                   </thead>
                   <tbody>

@@ -4,7 +4,7 @@
  <head>
  	<meta charset="utf-8">
  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
- 	<title>Laporan Aplikasi Keuangan</title>
+ 	<title>Laporan SIP3</title>
  	<link rel="stylesheet" href="../assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
  </head>
@@ -13,7 +13,7 @@
 
  	<center>
  		<h4>LAPORAN</h4>
- 		<h4>SISTEM INFORMASI KEUANGAN</h4>
+ 		<h4>SISTEM INFORMASI PUM, PJUM & P2D</h4>
  	</center>
 
 
@@ -70,8 +70,8 @@
  						<th colspan="2" class="text-center">JENIS</th>
  					</tr>
  					<tr>
- 						<th class="text-center">PEMASUKAN</th>
- 						<th class="text-center">PENGELUARAN</th>
+ 						<th class="text-center">PUM</th>
+ 						<th class="text-center">PJUM</th>
  					</tr>
  				</thead>
  				<tbody>

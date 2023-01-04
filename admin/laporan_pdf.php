@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Laporan Sistem Informasi Keuangan</title>
+  <title>Laporan Sistem Informasi PUM, PJUM & P2D</title>
 
 </head>
 <body>
@@ -13,7 +13,7 @@
   </style>
 
   <center>
-    <h4>LAPORAN <br/> Sistem Informasi Keuangan</h4>
+    <h4>LAPORAN <br/> Sistem Informasi PUM, PJUM & P2D</h4>
   </center>
 
   <?php 
@@ -63,8 +63,8 @@
         <th colspan="2">JENIS</th>
       </tr>
       <tr>
-        <th>PEMASUKAN</th>
-        <th>PENGELUARAN</th>
+        <th>PUM</th>
+        <th>PJUM</th>
       </tr>
       <?php 
       

@@ -21,10 +21,9 @@
                     <div class="box-header">
                         <h3 class="box-title">Transaksi PJUM</h3>
                         <div class="btn-group pull-right">
-
-                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+                            <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa fa-plus"></i> &nbsp Tambah PJUM
-                            </button>
+                            </button> -->
                         </div>
                         <hr>
                         <?php
@@ -157,7 +156,8 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO</th>
-                                    <th class="text-center">KODE</th>
+                                    <th class="text-center">NO.PUM</th>
+                                    <th class="text-center">NO.PJUM</th>
                                     <th class="text-center">TANGGAL TRANSAKSI</th>
                                     <th class="text-center">PROJECT</th>
                                     <th class="text-center">KEBUTUHAN DANA</th>
@@ -178,14 +178,19 @@
                                 $total_pengeluaran=0;
                                 // $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
                                 // where transaksi_jenis = 'Pemasukan' AND kategori_id=transaksi_kategori order by transaksi_id desc");
-                                $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
+                                $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori
                                 where kategori_id=transaksi_kategori order by transaksi_id desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
-                                        <td class="text-center"><?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?></td>
+                                        <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
+
+                                        <td class="text-center">
+                                            <?php echo date('d-m-Y', strtotime($d['tanggal_pjum'])); ?>
+                                        </td>
+
                                         <td><?php echo $d['kategori']; ?></td>
                                         <td><?php echo $d['transaksi_keterangan']; ?></td>
                                         <!-- <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
@@ -193,40 +198,19 @@
                                         
 
                                         <td class="text-center">
-                                            <?php 
-                                            if($d['transaksi_jenis'] == "Pemasukan"){
-                                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
-                                            }else{
-                                            echo "-";
-                                            }
-                                            ?>
+                                        <?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?>
                                         </td>
                                         <td class="text-center">
-                                            <?php 
-                                            if($d['transaksi_jenis'] == "Pengeluaran"){
-                                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
-                                            }else{
-                                            echo "-";
-                                            }
-                                            ?>
+                                        <?php echo "Rp. " . number_format($d['nominal_pjum']) . " ,-"; ?>
                                         </td>
 
                                         <td class="text-center">
-                                            <?php
-
-                                            if($d['transaksi_jenis'] == "Pemasukan"){
-                                                $total_pemasukan += $d['transaksi_nominal'];
-                                                
-                                              }elseif($d['transaksi_jenis'] == "Pengeluaran"){
-                                                $total_pengeluaran += $d['transaksi_nominal'];
-                                              }
-                                            ?>
-                                            <?php echo "Rp. ".number_format($total_pemasukan - $total_pengeluaran)." ,-"; ?>
+                                            <?php echo "Rp. ".number_format($d['transaksi_nominal'] - $d['nominal_pjum'])." ,-"; ?>
                                         </td>
                                         
                                         <td>
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_transaksi_<?php echo $d['transaksi_id'] ?>">
-                                                <i class="fa fa-cog"></i>
+                                                <i class="fa fa-pencil"></i>
                                             </button>
 
                                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_transaksi_<?php echo $d['transaksi_id'] ?>">
@@ -244,7 +228,7 @@
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="exampleModalLabel">Edit Transaksi PJUM</h4>
+                                                                <h4 class="modal-title" id="exampleModalLabel">Transaksi PJUM</h4>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
@@ -254,13 +238,13 @@
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Tanggal Laporan</label>
                                                                     <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
-                                                                    <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
+                                                                    <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['tanggal_pjum'] ?>">
                                                                 </div>
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Jenis</label>
+                                                                    <!-- <label>Jenis</label>
                                                                     <select name="jenis" class="form-control" required="required">
-                                                                        <option value="Pengeluaran">- PJUM -</option>
+                                                                        <option value="Pengeluaran">- PJUM -</option> -->
                                                                         <!-- <option value="Pemasukan">Pemasukan</option>
                                                                         <option value="Pengeluaran">Pengeluaran</option> -->
                                                                     </select>
@@ -268,7 +252,7 @@
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Project</label>
-                                                                    <select name="kategori" style="width:100%" class="form-control" required="required">
+                                                                    <select name="kategori" style="width:100%" class="form-control" required="required" disabled>
                                                                         <option value="">- Pilih -</option>
                                                                         <?php
                                                                         $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY kategori ASC");
@@ -285,25 +269,25 @@
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Nominal</label>
-                                                                    <input type="number" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
+                                                                    <input type="number" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['nominal_pjum'] ?>">
                                                                 </div>
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Keterangan</label>
-                                                                    <textarea name="keterangan" style="width:100%" class="form-control" rows="4"><?php echo $d['transaksi_keterangan'] ?></textarea>
+                                                                    <textarea name="keterangan" style="width:100%" class="form-control" rows="4" disabled><?php echo $d['transaksi_keterangan'] ?></textarea>
                                                                 </div>
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Tanggal Kebutuhan</label>
+                                                                    <!-- <label>Tanggal Kebutuhan</label>
                                                                     <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
-                                                                    <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
+                                                                    <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>"> -->
                                                                 </div>
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Upload File</label>
+                                                                    <label>Upload File PJUM</label>
                                                                     <input type="file" name="trnfoto" class="form-control"><br>
                                                                     <!-- <small><?php echo $d['transaksi_foto'] ?></small> -->
-                                                                    <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>"; ?> tidak dirubah kosongkan saja</p>
+                                                                    <!-- <p class="help-block">Bukti PJUM <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>"; ?></p> -->
                                                                 </div>
 
                                                                 <!-- <div class="form-group" style="width:100%;margin-bottom:20px">

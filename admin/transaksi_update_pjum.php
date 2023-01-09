@@ -1,10 +1,10 @@
 <?php 
 include '../koneksi.php';
 $id  = $_POST['id'];
-$tanggal  = $_POST['tanggal'];
+$tanggal_pjum  = $_POST['tanggal'];
 $jenis  = $_POST['jenis'];
 $kategori  = $_POST['kategori'];
-$nominal  = $_POST['nominal'];
+$nominal_pjum  = $_POST['nominal'];
 $keterangan  = $_POST['keterangan'];
 // $tanggal_kebutuhan  = $_POST['tanggal_kebutuhan'];
 // $bank  = $_POST['bank'];
@@ -53,7 +53,7 @@ $t = mysqli_fetch_assoc($transaksi);
 // }	
 
 if($filename == ""){
-	mysqli_query($koneksi, "update transaksi set transaksi_tanggal='$tanggal', transaksi_jenis='$jenis', transaksi_kategori='$kategori', transaksi_nominal='$nominal', transaksi_keterangan='$keterangan' where transaksi_id='$id'") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "update transaksi set tanggal_pjum='$tanggal_pjum', transaksi_jenis='$jenis', transaksi_kategori='$kategori', transaksi_nominal='$nominal', transaksi_keterangan='$keterangan' where transaksi_id='$id'") or die(mysqli_error($koneksi));
 	header("location:transaksi_pjum.php?alert=berhasilupdate");
 }else{
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -63,7 +63,7 @@ if($filename == ""){
 	}else{
 		move_uploaded_file($_FILES['trnfoto']['tmp_name'], '../gambar/bukti/'.$rand.'_'.$filename);
 		$xgambar = $rand.'_'.$filename;
-		mysqli_query($koneksi, "update transaksi set transaksi_tanggal='$tanggal', transaksi_jenis='$jenis', transaksi_kategori='$kategori', transaksi_nominal='$nominal', transaksi_keterangan='$keterangan', transaksi_foto='$xgambar' where transaksi_id='$id'");
+		mysqli_query($koneksi, "update transaksi set tanggal_pjum='$tanggal_pjum', transaksi_jenis='$jenis', transaksi_kategori='$kategori', transaksi_nominal='$nominal', transaksi_keterangan='$keterangan', transaksi_foto='$xgambar' where transaksi_id='$id'");
 		header("location:transaksi_pjum.php?alert=berhasilupdate");
 	}
 }

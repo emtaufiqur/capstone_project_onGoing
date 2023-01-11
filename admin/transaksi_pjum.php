@@ -73,7 +73,7 @@
 
                                             <div class="form-group">
                                                 <label>Tanggal Laporan</label>
-                                                <input type="text" name="tanggal" required="required" class="form-control datepicker2">
+                                                <input type="text" name="transaksi_tanggal" required="required" class="form-control datepicker2">
                                             </div>
 
                                             <div class="form-group">
@@ -114,10 +114,10 @@
                                                 <textarea name="keterangan" class="form-control" rows="3"></textarea>
                                             </div>
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label>Tanggal Kebutuhan</label>
                                                 <input type="text" name="tanggal_kebutuhan" required="required" class="form-control datepicker2">
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group">
                                                 <label>Upload File</label>
@@ -178,7 +178,7 @@
                                 $total_pengeluaran=0;
                                 // $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
                                 // where transaksi_jenis = 'Pemasukan' AND kategori_id=transaksi_kategori order by transaksi_id desc");
-                                $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori
+                                $data = mysqli_query($koneksi, "SELECT * FROM transaksi_pjum,kategori
                                 where kategori_id=transaksi_kategori order by transaksi_id desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
@@ -188,15 +188,12 @@
                                         <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
 
                                         <td class="text-center">
-                                            <?php echo date('d-m-Y', strtotime($d['tanggal_pjum'])); ?>
+                                            <?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?>
                                         </td>
 
                                         <td><?php echo $d['kategori']; ?></td>
                                         <td><?php echo $d['transaksi_keterangan']; ?></td>
-                                        <!-- <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td>
-                                        <td class="text-center"><?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?></td> -->
                                         
-
                                         <td class="text-center">
                                         <?php echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-"; ?>
                                         </td>
@@ -237,19 +234,17 @@
 
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Tanggal Laporan</label>
-                                                                    <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
-                                                                    <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['tanggal_pjum'] ?>">
+                                                                    <!-- <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>"> -->
+                                                                    <input type="text" style="width:100%" name="transaksi_tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
                                                                 </div>
 
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <!-- <label>Jenis</label>
+                                                                <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                                    <label>Jenis</label>
                                                                     <select name="jenis" class="form-control" required="required">
                                                                         <option value="Pengeluaran">- PJUM -</option> -->
                                                                         <!-- <option value="Pemasukan">Pemasukan</option>
                                                                         <option value="Pengeluaran">Pengeluaran</option> -->
-                                                                    </select>
-                                                                </div>
-
+          
                                                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                                                     <label>Project</label>
                                                                     <select name="kategori" style="width:100%" class="form-control" required="required" disabled>

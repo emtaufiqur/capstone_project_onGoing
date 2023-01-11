@@ -1,6 +1,6 @@
 <?php 
 include '../koneksi.php';
-$tanggal  = $_POST['tanggal'];
+$tanggal  = $_POST['transaksi_tanggal'];
 $jenis  = $_POST['jenis'];
 $kategori  = $_POST['kategori'];
 $nominal  = $_POST['nominal'];
@@ -13,7 +13,7 @@ $allowed =  array('jpg','jpeg','pdf');
 $filename = $_FILES['trnfoto']['name'];
 
 if($filename == ""){
-	mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_pjum','$bank')")or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "insert into transaksi_pjum values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_pjum','$bank')")or die(mysqli_error($koneksi));
 	header("location:transaksi_pjum.php?alert=berhasil");
 	mysqli_query($koneksi, "insert into pjum values (NULL)")or die(mysqli_error($koneksi));
 	header("location:transaksi_pjum.php?alert=berhasil");
@@ -25,7 +25,7 @@ if($filename == ""){
 	}else{
 		move_uploaded_file($_FILES['trnfoto']['tmp_name'], '../gambar/bukti/'.$rand.'_'.$filename);
 		$file_gambar = $rand.'_'.$filename;
-		mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_pjum','$file_gambar','$bank')");
+		mysqli_query($koneksi, "insert into transaksi_pjum values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_pjum','$file_gambar','$bank')");
 		header("location:transaksi_pjum.php?alert=berhasil");
 	}
 }

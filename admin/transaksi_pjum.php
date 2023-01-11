@@ -7,10 +7,6 @@
             PJUM
             <small>Data Transaksi PJUM</small>
         </h1>
-        <!-- <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Dashboard</li>
-    </ol> -->
     </section>
 
     <section class="content">
@@ -185,7 +181,7 @@
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
-                                        <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
+                                        <td>PUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
 
                                         <td class="text-center">
                                             <?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?>
@@ -220,8 +216,14 @@
 
 
                                             <!-- Update -->
-                                            <form action="transaksi_update_pjum.php" method="post" enctype="multipart/form-data">
-                                                <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <!-- <div class="modal fade" id="hapus_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header"> -->
+
+
+                                            <!-- <form action="transaksi_update_pjum.php" method="post" enctype="multipart/form-data"> -->
+                                                <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" enctype="multipart/form-data">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">

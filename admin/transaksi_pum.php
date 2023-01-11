@@ -204,7 +204,7 @@
                       </button>
 
 
-                      <!-- Tambah -->
+                      <!-- Edit -->
                       <form action="transaksi_update_pum.php" method="post" enctype="multipart/form-data">
                         <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">

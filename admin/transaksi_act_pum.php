@@ -6,7 +6,7 @@ $kategori  = $_POST['kategori'];
 $nominal  = $_POST['nominal'];
 $keterangan  = $_POST['keterangan'];
 $tanggal_kebutuhan  = $_POST['tanggal_kebutuhan'];
-$bank  = $_POST['bank'];
+// $bank  = $_POST['bank'];
 
 $rand = rand();
 $allowed =  array('jpg','jpeg','pdf');

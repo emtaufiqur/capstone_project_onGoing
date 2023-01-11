@@ -1,12 +1,12 @@
 <?php 
 include '../koneksi.php';
-// $id  = $_POST['id'];
+$id  = $_POST['id'];
 $tanggal  = $_POST['transaksi_tanggal'];
-// $jenis  = $_POST['jenis'];
-// $kategori  = $_POST['kategori'];
+$jenis  = $_POST['jenis'];
+$kategori  = $_POST['kategori'];
 $nominal_pjum  = $_POST['nominal'];
-// $keterangan  = $_POST['keterangan'];
-// $tanggal_kebutuhan  = $_POST['tanggal_kebutuhan'];
+$keterangan  = $_POST['keterangan'];
+$tanggal_kebutuhan  = $_POST['tanggal_kebutuhan'];
 // $bank  = $_POST['bank'];
 
 $rand = rand();
@@ -18,7 +18,7 @@ $transaksi = mysqli_query($koneksi,"select * from transaksi_pjum where transaksi
 $t = mysqli_fetch_assoc($transaksi);
 
 if($filename == ""){
-	mysqli_query($koneksi, "update transaksi set tanggal_pjum='$tanggal_pjum', transaksi_jenis='$jenis', transaksi_kategori='$kategori', transaksi_nominal='$nominal', transaksi_keterangan='$keterangan' where transaksi_id='$id'") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "update transaksi_pjum set tanggal_pjum='$tanggal_pjum', transaksi_jenis='$jenis', transaksi_kategori='$kategori', transaksi_nominal='$nominal', transaksi_keterangan='$keterangan' where transaksi_id='$id'") or die(mysqli_error($koneksi));
 	header("location:transaksi_pjum.php?alert=berhasilupdate");
 }else{
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);

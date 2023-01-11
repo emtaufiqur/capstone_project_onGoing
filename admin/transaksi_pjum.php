@@ -17,9 +17,9 @@
                     <div class="box-header">
                         <h3 class="box-title">Transaksi PJUM</h3>
                         <div class="btn-group pull-right">
-                            <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa fa-plus"></i> &nbsp Tambah PJUM
-                            </button> -->
+                            </button>
                         </div>
                         <hr>
                         <?php
@@ -152,8 +152,8 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO</th>
-                                    <th class="text-center">NO.PUM</th>
                                     <th class="text-center">NO.PJUM</th>
+                                    <th class="text-center">NO.PUM</th>
                                     <th class="text-center">TANGGAL TRANSAKSI</th>
                                     <th class="text-center">PROJECT</th>
                                     <th class="text-center">KEBUTUHAN DANA</th>
@@ -166,7 +166,7 @@
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <body>
                                 <?php
                                 include '../koneksi.php';
                                 $no = 1;
@@ -216,13 +216,7 @@
 
 
                                             <!-- Update -->
-                                            <!-- <div class="modal fade" id="hapus_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header"> -->
-
-
-                                            <!-- <form action="transaksi_update_pjum.php" method="post" enctype="multipart/form-data"> -->
+                                            <form action="transaksi_update_pjum.php" method="post" enctype="multipart/form-data">
                                                 <div class="modal fade" id="edit_transaksi_<?php echo $d['transaksi_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" enctype="multipart/form-data">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">

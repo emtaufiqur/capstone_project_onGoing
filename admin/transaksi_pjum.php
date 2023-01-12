@@ -17,9 +17,9 @@
                     <div class="box-header">
                         <h3 class="box-title">Transaksi PJUM</h3>
                         <div class="btn-group pull-right">
-                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+                            <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fa fa-plus"></i> &nbsp Tambah PJUM
-                            </button>
+                            </button> -->
                         </div>
                         <hr>
                         <?php
@@ -73,19 +73,6 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Jenis</label>
-                                                <select name="jenis" class="form-control" required="required">
-                                                    <option value="Pengeluaran">- PJUM -</option>
-                                                    <option value="Pengeluaran">- PUM -</option>
-                                                    <!-- <option value="Pemasukan">Pemasukan</option>
-                                                    <option value="Pengeluaran">Pengeluaran</option> -->
-                                                </select>
-                                            </div>
-
-
-                                            
-
-                                            <div class="form-group">
                                                 <label>Project</label>
                                                 <select name="kategori" class="form-control" required="required">
                                                     <option value="">- Pilih -</option>
@@ -121,21 +108,6 @@
                                                 <small>File yang di perbolehkan *PDF | *JPG | *jpeg </small>
                                             </div>
 
-                                            <!-- <div class="form-group">
-                        <label>Rekening Bank</label>
-                        <select name="bank" class="form-control" required="required">
-                        <!-- <option value="">- Pilih -</option> -->
-                                            <!-- <?php
-                                                    $bank = mysqli_query($koneksi, "SELECT * FROM bank");
-                                                    while ($b = mysqli_fetch_array($bank)) {
-                                                    ?>
-                                                <option value="<?php echo $b['bank_id']; ?>"><?php echo $b['bank_nama']; ?></option>
-                                            <?php
-                                                    }
-                                            ?> -->
-                                            </select>
-                                        </div>
-
                                     </div> -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -152,13 +124,11 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO</th>
-                                    <th class="text-center">NO.PJUM</th>
                                     <th class="text-center">NO.PUM</th>
+                                    <th class="text-center">NO.PJUM</th>
                                     <th class="text-center">TANGGAL TRANSAKSI</th>
                                     <th class="text-center">PROJECT</th>
                                     <th class="text-center">KEBUTUHAN DANA</th>
-                                    <!-- <th class="text-center">TANGGAL KEBUTUHAN</th> -->
-                                    <!-- <th colspan="2" class="text-center">TYPE TRANSAKSI</th> -->
                                     <th class="text-center">NOMINAL PUM</th>
                                     <th class="text-center">NOMINAL PJUM</th>
                                     <th class="text-center">SELISIH</th>
@@ -172,19 +142,17 @@
                                 $no = 1;
                                 $total_pemasukan=0;
                                 $total_pengeluaran=0;
-                                // $data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori 
-                                // where transaksi_jenis = 'Pemasukan' AND kategori_id=transaksi_kategori order by transaksi_id desc");
                                 $data = mysqli_query($koneksi, "SELECT * FROM transaksi_pjum,kategori
                                 where kategori_id=transaksi_kategori order by transaksi_id desc");
                                 while ($d = mysqli_fetch_array($data)) {
                                 ?>
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
-                                        <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
                                         <td>PUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
+                                        <td>PJUM-0<?php echo $d['transaksi_id_pjum']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal_pjum'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal_pjum'])); ?></td>
 
                                         <td class="text-center">
-                                            <?php echo date('d-m-Y', strtotime($d['transaksi_tanggal'])); ?>
+                                            <?php echo date('d-m-Y', strtotime($d['transaksi_tanggal_pjum'])); ?>
                                         </td>
 
                                         <td><?php echo $d['kategori']; ?></td>
@@ -228,84 +196,65 @@
                                                             </div>
                                                             <div class="modal-body">
 
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Tanggal Laporan</label>
-                                                                    <!-- <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>"> -->
-                                                                    <input type="text" style="width:100%" name="transaksi_tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
-                                                                </div>
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Tanggal Laporan</label>
+                                                            <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
 
-                                                                <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Jenis</label>
-                                                                    <select name="jenis" class="form-control" required="required">
-                                                                        <option value="Pengeluaran">- PJUM -</option> -->
-                                                                        <!-- <option value="Pemasukan">Pemasukan</option>
-                                                                        <option value="Pengeluaran">Pengeluaran</option> -->
-          
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Project</label>
-                                                                    <select name="kategori" style="width:100%" class="form-control" required="required" disabled>
-                                                                        <option value="">- Pilih -</option>
-                                                                        <?php
-                                                                        $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY kategori ASC");
-                                                                        while ($k = mysqli_fetch_array($kategori)) {
-                                                                        ?>
-                                                                            <option <?php if ($d['transaksi_kategori'] == $k['kategori_id']) {
-                                                                                        echo "selected='selected'";
-                                                                                    } ?> value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori']; ?></option>
-                                                                        <?php
-                                                                        }
-                                                                        ?>
-                                                                    </select>
-                                                                </div>
+                                                            <input type="hidden" name="id_pjum" value="<?php echo $d['transaksi_id_pjum'] ?>">
 
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Nominal</label>
-                                                                    <input type="number" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['nominal_pjum'] ?>">
-                                                                </div>
+                                                            <input type="hidden" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
 
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Keterangan</label>
-                                                                    <textarea name="keterangan" style="width:100%" class="form-control" rows="4" disabled><?php echo $d['transaksi_keterangan'] ?></textarea>
-                                                                </div>
+                                                            <input type="text" style="width:100%" name="tanggal_pjum" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_pjum'] ?>">
+                                                            </div>
 
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <!-- <label>Tanggal Kebutuhan</label>
-                                                                    <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
-                                                                    <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>"> -->
-                                                                </div>
-
-                                                                <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                                    <label>Upload File PJUM</label>
-                                                                    <input type="file" name="trnfoto" class="form-control"><br>
-                                                                    <!-- <small><?php echo $d['transaksi_foto'] ?></small> -->
-                                                                    <!-- <p class="help-block">Bukti PJUM <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>"; ?></p> -->
-                                                                </div>
-
-                                                                <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
-                                    <label>Rekening Bank</label>
-                                    <select name="bank" class="form-control" required="required" style="width:100%">
-                                      <option value="">- Pilih -</option> -->
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Project</label>
+                                                            <select name="kategori" style="width:100%" class="form-control" required="required" disabled>
+                                                                <option value="">- Pilih -</option>
                                                                 <?php
-                                                                $bank = mysqli_query($koneksi, "SELECT * FROM bank");
-                                                                while ($b = mysqli_fetch_array($bank)) {
+                                                                $kategori = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY kategori ASC");
+                                                                while ($k = mysqli_fetch_array($kategori)) {
                                                                 ?>
-                                                                    <option <?php if ($d['transaksi_bank'] == $b['bank_id']) {
-                                                                                echo "selected='selected'";
-                                                                            } ?> value="<?php echo $b['bank_id']; ?>"><?php echo $b['bank_nama']; ?></option>
+                                                                <option <?php if ($d['transaksi_kategori'] == $k['kategori_id']) {
+                                                                            echo "selected='selected'";
+                                                                        } ?> value="<?php echo $k['kategori_id']; ?>"><?php echo $k['kategori']; ?></option>
                                                                 <?php
                                                                 }
                                                                 ?>
-                                                                </select>
+                                                            </select>
                                                             </div>
 
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Nominal</label>
+                                                            <input type="hidden" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
+                                                            <input type="number" style="width:100%" name="nominal_pjum" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['nominal_pjum'] ?>">
+                                                            </div>
 
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Keterangan</label>
+                                                            <textarea name="keterangan" style="width:100%" class="form-control" rows="4" disabled><?php echo $d['transaksi_keterangan'] ?></textarea>
+                                                            </div>
+
+                                                            <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Tanggal Kebutuhan</label>
+                                                            <input type="hidden" name="tanggal_kebutuhan" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
+                                                            <input type="hidden" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
+                                                            </div> -->
+
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Upload File</label>
+                                                            <input type="file" name="foto" class="form-control"><br>
+                                                            <!-- <small><?php echo $d['transaksi_foto'] ?></small> -->
+                                                            <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>"; ?> tidak dirubah kosongkan saja</p>
+                                                            </div>
+                                                            
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                    </div>
                     </div>
                     </form>
 

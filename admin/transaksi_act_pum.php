@@ -1,36 +1,21 @@
 <?php 
 include '../koneksi.php';
+$id_pjum = $_POST['id_pjum'];
 $tanggal  = $_POST['tanggal'];
-$jenis  = $_POST['jenis'];
+$tanggal_pjum  = $_POST['tanggal_pjum'];
 $kategori  = $_POST['kategori'];
 $nominal  = $_POST['nominal'];
+$nominal_pjum = $_POST['nominal_pjum'];
 $keterangan  = $_POST['keterangan'];
 $tanggal_kebutuhan  = $_POST['tanggal_kebutuhan'];
-// $bank  = $_POST['bank'];
 
 $rand = rand();
 $allowed =  array('jpg','jpeg','pdf');
 $filename = $_FILES['trnfoto']['name'];
 
-$rekening = mysqli_query($koneksi,"select * from bank where bank_id='$bank'");
-$r = mysqli_fetch_assoc($rekening);
-
-if($jenis == "Pemasukan"){
-
-	$saldo_sekarang = $r['bank_saldo'];
-	$total = $saldo_sekarang+$nominal;
-	mysqli_query($koneksi,"update bank set bank_saldo='$total' where bank_id='$bank'");
-
-}elseif($jenis == "Pengeluaran"){
-
-	$saldo_sekarang = $r['bank_saldo'];
-	$total = $saldo_sekarang-$nominal;
-	mysqli_query($koneksi,"update bank set bank_saldo='$total' where bank_id='$bank'");
-
-}
 
 if($filename == ""){
-	mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_kebutuhan','','$bank')")or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "insert into transaksi_pjum values (NULL,'$id_pjum','$tanggal','$tanggal_pjum','$kategori','$nominal','$nominal_pjum','$keterangan','$tanggal_kebutuhan','')")or die(mysqli_error($koneksi));
 	header("location:transaksi_pum.php?alert=berhasil");
 }else{
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -40,10 +25,7 @@ if($filename == ""){
 	}else{
 		move_uploaded_file($_FILES['trnfoto']['tmp_name'], '../gambar/bukti/'.$rand.'_'.$filename);
 		$file_gambar = $rand.'_'.$filename;
-		mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$tanggal_kebutuhan','$file_gambar','$bank')");
+		mysqli_query($koneksi, "insert into transaksi_pjum values (NULL,'$id_pjum','$tanggal','$tanggal_pjum','$kategori','$nominal','$nominal_pjum','$keterangan','$tanggal_kebutuhan','$file_gambar')");
 		header("location:transaksi_pum.php?alert=berhasil");
 	}
 }
-
-// mysqli_query($koneksi, "insert into transaksi values (NULL,'$tanggal','$jenis','$kategori','$nominal','$keterangan','$bank')")or die(mysqli_error($koneksi));
-// header("location:transaksi.php");

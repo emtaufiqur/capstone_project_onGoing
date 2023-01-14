@@ -106,7 +106,7 @@
                                     </div> -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <button type="submit" class="btn btn-primary"style="background-color: #159957;">Simpan</button>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                        <button type="submit" class="btn btn-primary"style="background-color: #159957;">Simpan</button>
                                                         </div>
                                                     </div>
                                                     </div>

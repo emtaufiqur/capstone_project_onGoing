@@ -56,7 +56,7 @@
               <input type="password" class="form-control" placeholder="Password" name="password" required="required" autocomplete="off">
               <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <input type="submit" name="submit" class="btn btn-primary btn-user btn-block" value="Login">
+            <input type="submit" name="submit" class="btn btn-primary btn-user btn-block" value="Login" style="background-color: #159957;">
             </div>
           </form>
 

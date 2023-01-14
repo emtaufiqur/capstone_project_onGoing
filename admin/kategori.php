@@ -22,7 +22,7 @@
             <h3 class="box-title">Project Transaksi PUM, PJUM, P2D</h3>
             <div class="btn-group pull-right">            
 
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal"style="background-color: #159957;">
                 <i class="fa fa-plus"></i> &nbsp Tambah Project
               </button>
             </div>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                      <button type="submit" class="btn btn-primary">Simpan</button>
+                      <button type="submit" class="btn btn-primary"style="background-color: #159957;">Simpan</button>
                     </div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                  <button type="submit" class="btn btn-primary">Simpan</button>
+                                  <button type="submit" class="btn btn-primary"style="background-color: #159957;">Simpan</button>
                                 </div>
                               </div>
                             </div>

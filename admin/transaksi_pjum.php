@@ -197,13 +197,17 @@
                                                             <div class="modal-body">
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Id PUM</label>
+                                                            <input type="number" style="width:100%" name="id" required="required" class="form-control" value="<?php echo $d['transaksi_id'] ?>">
+                                                            </div>
+
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Id PJUM</label>
+                                                            <input type="number" style="width:100%" name="id_pjum" required="required" class="form-control" value="<?php echo $d['transaksi_id_pjum'] ?>">
+                                                            </div>
+                                                            
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
                                                             <label>Tanggal Laporan</label>
-                                                            <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
-
-                                                            <input type="hidden" name="id_pjum" value="<?php echo $d['transaksi_id_pjum'] ?>">
-
-                                                            <input type="hidden" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
-
                                                             <input type="text" style="width:100%" name="tanggal_pjum" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_pjum'] ?>">
                                                             </div>
 
@@ -225,8 +229,12 @@
                                                             </div>
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <label>Nominal</label>
-                                                            <input type="hidden" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
+                                                            <label>Nominal PUM</label>
+                                                            <input type="number" style="width:100%" name="nominal" disabled required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
+                                                            </div>
+
+                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
+                                                            <label>Nominal PJUM</label>
                                                             <input type="number" style="width:100%" name="nominal_pjum" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['nominal_pjum'] ?>">
                                                             </div>
 
@@ -243,7 +251,7 @@
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
                                                             <label>Upload File</label>
-                                                            <input type="file" name="foto" class="form-control"><br>
+                                                            <input type="file" name="trnfoto" class="form-control"><br>
                                                             <!-- <small><?php echo $d['transaksi_foto'] ?></small> -->
                                                             <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>"; ?> tidak dirubah kosongkan saja</p>
                                                             </div>

@@ -97,11 +97,6 @@
                                                 <textarea name="keterangan" class="form-control" rows="3"></textarea>
                                             </div>
 
-                                            <!-- <div class="form-group">
-                                                <label>Tanggal Kebutuhan</label>
-                                                <input type="text" name="tanggal_kebutuhan" required="required" class="form-control datepicker2">
-                                            </div> -->
-
                                             <div class="form-group">
                                                 <label>Upload File</label>
                                                 <input type="file" name="trnfoto" required="required" class="form-control">
@@ -149,7 +144,7 @@
                                     <tr>
                                         <td class="text-center"><?php echo $no++; ?></td>
                                         <td>PUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
-                                        <td>PJUM-0<?php echo $d['transaksi_id_pjum']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal_pjum'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal_pjum'])); ?></td>
+                                        <td>PJUM-0<?php echo $d['transaksi_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['transaksi_tanggal'])); ?>/<?php echo date('Y', strtotime($d['transaksi_tanggal'])); ?></td>
 
                                         <td class="text-center">
                                             <?php echo date('d-m-Y', strtotime($d['transaksi_tanggal_pjum'])); ?>
@@ -202,8 +197,8 @@
                                                             </div>
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <label>Id PJUM</label>
-                                                            <input type="number" style="width:100%" name="id_pjum" required="required" class="form-control" value="<?php echo $d['transaksi_id_pjum'] ?>">
+                                                            <!-- <label>Id PJUM</label> -->
+                                                            <input type="hidden" style="width:100%" name="id" required="required" class="form-control" value="<?php echo $d['transaksi_id'] ?>">
                                                             </div>
                                                             
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -243,17 +238,11 @@
                                                             <textarea name="keterangan" style="width:100%" class="form-control" rows="4" disabled><?php echo $d['transaksi_keterangan'] ?></textarea>
                                                             </div>
 
-                                                            <!-- <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <label>Tanggal Kebutuhan</label>
-                                                            <input type="hidden" name="tanggal_kebutuhan" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
-                                                            <input type="hidden" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
-                                                            </div> -->
-
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
                                                             <label>Upload File</label>
                                                             <input type="file" name="trnfoto" class="form-control"><br>
-                                                            <!-- <small><?php echo $d['transaksi_foto'] ?></small> -->
-                                                            <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto]'>$d[transaksi_foto]</a>"; ?> tidak dirubah kosongkan saja</p>
+                                                            <!-- <small><?php echo $d['transaksi_foto_pjum'] ?></small> -->
+                                                            <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto_pjum]'>$d[transaksi_foto_pjum]</a>"; ?> tidak dirubah kosongkan saja</p>
                                                             </div>
                                                             
                                                         </div>

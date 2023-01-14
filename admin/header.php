@@ -121,7 +121,7 @@
           </li>
 
           <li>
-            <a href="hutang.php">
+            <a href="p2d.php">
               <i class="fa fa-envelope-open"></i> <span>P2D</span>
             </a>
           </li>

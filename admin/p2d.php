@@ -26,7 +26,7 @@
           <div class="box-body">
 
             <!-- Tambah -->
-            <form action="hutang_act.php" method="post">
+            <form action="p2d_act.php" method="post">
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -97,37 +97,37 @@
                   <?php 
                   include '../koneksi.php';
                   $no=1;
-                  $data = mysqli_query($koneksi,"SELECT h.hutang_id, 
-                  h.hutang_tanggal, 
-                  h.hutang_nominal, 
-                  h.hutang_keterangan, 
+                  $data = mysqli_query($koneksi,"SELECT h.p2d_id, 
+                  h.p2d_tanggal, 
+                  h.p2d_nominal, 
+                  h.p2d_keterangan, 
                   k.kategori,
                   k.kode FROM 
-                  hutang AS h 
+                  p2d AS h 
                   JOIN kategori AS k 
                   ON h.kategori_id = k.kategori_id") or die (mysqli_error($koneksi));
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
                       <td class="text-center"><?php echo $no++; ?></td>
-                      <td>P2D-0<?php echo $d['hutang_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['hutang_tanggal'])); ?>/<?php echo date('Y', strtotime($d['hutang_tanggal'])); ?></td>
-                      <td class="text-center"><?php echo date('d-m-Y', strtotime($d['hutang_tanggal'])); ?></td>
+                      <td>P2D-0<?php echo $d['p2d_id']; ?>/<?php echo $d['kode']; ?>/<?php echo date('m', strtotime($d['p2d_tanggal'])); ?>/<?php echo date('Y', strtotime($d['p2d_tanggal'])); ?></td>
+                      <td class="text-center"><?php echo date('d-m-Y', strtotime($d['p2d_tanggal'])); ?></td>
                       <td><?php echo $d['kategori']; ?></td>
-                      <td><?php echo $d['hutang_keterangan']; ?></td>
-                      <td class="text-center"><?php echo "Rp. ".number_format($d['hutang_nominal'])." ,-"; ?></td>
+                      <td><?php echo $d['p2d_keterangan']; ?></td>
+                      <td class="text-center"><?php echo "Rp. ".number_format($d['p2d_nominal'])." ,-"; ?></td>
                       <td>
 
-                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_hutang_<?php echo $d['hutang_id'] ?>">
+                       <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_p2d_<?php echo $d['p2d_id'] ?>">
                         <i class="fa fa-cog"></i>
                       </button>
 
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_hutang_<?php echo $d['hutang_id'] ?>">
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapus_p2d_<?php echo $d['p2d_id'] ?>">
                         <i class="fa fa-trash"></i>
                       </button>
                       
                       <!-- Edit -->
-                      <form action="hutang_update.php" method="post">
-                        <div class="modal fade" id="edit_hutang_<?php echo $d['hutang_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <form action="p2d_update.php" method="post">
+                        <div class="modal fade" id="edit_p2d_<?php echo $d['p2d_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -140,18 +140,18 @@
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Tanggal</label>
-                                  <input type="hidden" name="id" value="<?php echo $d['hutang_id'] ?>">
-                                  <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['hutang_tanggal'] ?>">
+                                  <input type="hidden" name="id" value="<?php echo $d['p2d_id'] ?>">
+                                  <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['p2d_tanggal'] ?>">
                                 </div>
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Nominal</label>
-                                  <input type="number" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['hutang_nominal'] ?>">
+                                  <input type="number" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['p2d_nominal'] ?>">
                                 </div>
 
                                 <div class="form-group" style="width:100%">
                                   <label>Keterangan</label>
-                                  <textarea name="keterangan" style="width:100%" class="form-control" rows="4"><?php echo $d['hutang_keterangan'] ?></textarea>
+                                  <textarea name="keterangan" style="width:100%" class="form-control" rows="4"><?php echo $d['p2d_keterangan'] ?></textarea>
                                 </div>
 
 
@@ -166,7 +166,7 @@
                       </form>
 
                       <!-- modal hapus -->
-                      <div class="modal fade" id="hapus_hutang_<?php echo $d['hutang_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="hapus_p2d_<?php echo $d['p2d_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -182,7 +182,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                              <a href="hutang_hapus.php?id=<?php echo $d['hutang_id'] ?>" class="btn btn-primary">Hapus</a>
+                              <a href="p2d_hapus.php?id=<?php echo $d['p2d_id'] ?>" class="btn btn-primary">Hapus</a>
                             </div>
                           </div>
                         </div>

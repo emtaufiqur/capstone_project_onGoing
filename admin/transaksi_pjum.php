@@ -197,8 +197,8 @@
                                                             <div class="modal-body">
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <label>Id PUM</label>
-                                                            <input type="number" style="width:100%" name="id" required="required" class="form-control" value="<?php echo $d['transaksi_id'] ?>">
+                                                            <!-- <label>Id PUM</label> -->
+                                                            <input type="hidden" style="width:100%" name="id" required="required" class="form-control" value="<?php echo $d['transaksi_id'] ?>">
                                                             </div>
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -229,8 +229,8 @@
                                                             </div>
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <label>Nominal PUM</label>
-                                                            <input type="number" style="width:100%" name="nominal" disabled required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
+                                                            <!-- <label>Nominal PUM</label> -->
+                                                            <input type="hidden" style="width:100%" name="nominal" disabled required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
                                                             </div>
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">

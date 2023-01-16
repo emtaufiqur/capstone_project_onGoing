@@ -68,20 +68,9 @@
                     </div>
                     <div class="modal-body">
 
-
-                      <div class="form-group">
-                        <!-- <label>Id PJUM</label> -->
-                        <input type="hidden" name="id_pjum" required="required" class="form-control" disabled>
-                      </div>
-
                       <div class="form-group">
                         <label>Tanggal Transaksi</label>
                         <input type="text" name="tanggal" required="required" class="form-control datepicker2">
-                      </div>
-
-                      <div class="form-group">
-                        <!-- <label>Tanggal Transaksi PJUM</label> -->
-                        <input type="hidden" name="tanggal_pjum" required="required" class="form-control datepicker2" disabled>
                       </div>
 
                       <div class="form-group">
@@ -105,11 +94,6 @@
                       </div>
 
                       <div class="form-group">
-                        <!-- <label>Nominal PJUM</label> -->
-                        <input type="hidden" name="nominal_pjum" required="required" class="form-control" placeholder="Masukkan Nominal .." disabled>
-                      </div>
-
-                      <div class="form-group">
                         <label>Keterangan</label>
                         <textarea name="keterangan" class="form-control" rows="3"></textarea>
                       </div>
@@ -123,6 +107,12 @@
                         <label>Upload File</label>
                         <input type="file" name="trnfoto" required="required" class="form-control">
                         <small>File yang di perbolehkan *PDF | *JPG | *jpeg </small>
+
+                        <div class="form-group">
+                        <!-- <label>Upload File</label> -->
+                        <input type="hidden" name="foto_pjum" required="required" class="form-control">
+                        <!-- <small>File yang di perbolehkan *PDF | *JPG | *jpeg </small> -->
+                      </div>
                       </div>
 
                   </div>
@@ -203,11 +193,7 @@
                                   <label>Tanggal Transaksi</label>
                                   <input type="hidden" name="id" value="<?php echo $d['transaksi_id'] ?>">
 
-                                  <input type="hidden" name="id_pjum" value="<?php echo $d['transaksi_id_pjum'] ?>">
-
                                   <input type="text" style="width:100%" name="tanggal" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal'] ?>">
-
-                                  <input type="hidden" style="width:100%" name="tanggal_pjum" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_pjum'] ?>">
                                 </div>
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -230,7 +216,6 @@
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Nominal</label>
                                   <input type="number" style="width:100%" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
-                                  <input type="hidden" style="width:100%" name="nominal_pjum" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['nominal_pjum'] ?>">
                                 </div>
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
@@ -240,7 +225,6 @@
 
                                 <div class="form-group" style="width:100%;margin-bottom:20px">
                                   <label>Tanggal Kebutuhan</label>
-                                  <input type="hidden" name="tanggal_kebutuhan" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
                                   <input type="text" style="width:100%" name="tanggal_kebutuhan" required="required" class="form-control datepicker2" value="<?php echo $d['transaksi_tanggal_kebutuhan'] ?>">
                                 </div>
 

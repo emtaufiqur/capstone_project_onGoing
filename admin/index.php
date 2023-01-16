@@ -5,7 +5,7 @@
   <section class="content-header">
     <h1>
       Dashboard
-      <small>PUM, PJUM, P2D</small>
+      <!-- <small>PUM, PJUM, P2D</small> -->
     </h1>
     <!-- <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -180,8 +180,8 @@
 
           <ul class="nav nav-tabs pull-right">
             <!-- <li><a href="#tab2" data-toggle="tab">Pemasukan</a></li> -->
-            <li class="active"><a href="#tab1" data-toggle="tab">PUM & PJUM</a></li>
-            <li class="pull-left header">Grafik</li>
+            <li class="active"><a href="#tab1" data-toggle="tab">PUM, PJUM & P2D</a></li>
+            <li class="pull-left header">SIP3 => PUM, PJUM & P2D</li>
           </ul>
 
           <div class="tab-content" style="padding: 20px">
@@ -189,19 +189,19 @@
             <div class="chart tab-pane active" id="tab1">
 
               
-              <h4 class="text-center">Grafik Data PUM vs PJUM Per <b>Bulan</b></h4>
-              <canvas id="grafik1" style="position: relative; height: 200px;"></canvas>
+              <!-- <h4 class="text-center">Grafik Data PUM vs PJUM Per <b>Bulan</b></h4>
+              <canvas id="grafik1" style="position: relative; height: 200px;"></canvas> -->
 
               <br/>
               <br/>
               <br/>
 
-              <h4 class="text-center">Grafik Data PUM & PJUM Per <b>Tahun</b></h4>
-              <canvas id="grafik2" style="position: relative; height: 200px;"></canvas>
+              <!-- <h4 class="text-center">Grafik Data PUM & PJUM Per <b>Tahun</b></h4>
+              <canvas id="grafik2" style="position: relative; height: 200px;"></canvas> -->
 
             </div>
             <div class="chart tab-pane" id="tab2" style="position: relative; height: 300px;">
-              b
+              
             </div>
           </div>
 

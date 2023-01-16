@@ -81,16 +81,16 @@
 						$total_pemasukan = 0;
 						$total_pengeluaran = 0;
 						if ($kategori == "semua") {
-							$data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
+							$data = mysqli_query($koneksi, "SELECT * FROM transaksi_pjum,kategori where kategori_id=transaksi_kategori and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
 						} else {
-							$data = mysqli_query($koneksi, "SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori and kategori_id='$kategori' and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
+							$data = mysqli_query($koneksi, "SELECT * FROM transaksi_pjum,kategori where kategori_id=transaksi_kategori and kategori_id='$kategori' and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
 						}
 						while ($d = mysqli_fetch_array($data)) {
 
-							if ($d['transaksi_jenis'] == "Pemasukan") {
+							if ($d['transaksi_nominal']) {
 								$total_pemasukan += $d['transaksi_nominal'];
-							} elseif ($d['transaksi_jenis'] == "Pengeluaran") {
-								$total_pengeluaran += $d['transaksi_nominal'];
+							} elseif ($d['nominal_pjum']) {
+								$total_pengeluaran += $d['nominal_pjum'];
 							}
 						?>
  						<tr>
@@ -100,7 +100,7 @@
  							<td><?php echo $d['transaksi_keterangan']; ?></td>
  							<td class="text-center">
  								<?php
-									if ($d['transaksi_jenis'] == "Pemasukan") {
+									if ($d['transaksi_nominal']) {
 										echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-";
 									} else {
 										echo "-";
@@ -109,8 +109,8 @@
  							</td>
  							<td class="text-center">
  								<?php
-									if ($d['transaksi_jenis'] == "Pengeluaran") {
-										echo "Rp. " . number_format($d['transaksi_nominal']) . " ,-";
+									if ($d['nominal_pjum']) {
+										echo "Rp. " . number_format($d['nominal_pjum']) . " ,-";
 									} else {
 										echo "-";
 									}

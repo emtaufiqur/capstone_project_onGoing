@@ -101,7 +101,7 @@
             <?php
             for ($bulan = 1; $bulan <= 12; $bulan++) {
               $thn_ini = date('Y');
-              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi where transaksi_jenis='Pemasukan' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
+              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi_pjum where month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
               $pem = mysqli_fetch_assoc($pemasukan);
 
               // $total = str_replace(",", "44", number_format($pem['total_pemasukan']));
@@ -125,7 +125,7 @@
             <?php
             for ($bulan = 1; $bulan <= 12; $bulan++) {
               $thn_ini = date('Y');
-              $pengeluaran = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi where transaksi_jenis='pengeluaran' and month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
+              $pengeluaran = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi_pjum where month(transaksi_tanggal)='$bulan' and year(transaksi_tanggal)='$thn_ini'");
               $peng = mysqli_fetch_assoc($pengeluaran);
 
               // $total = str_replace(",", "44", number_format($peng['total_pengeluaran']));
@@ -148,7 +148,7 @@
     var barChartData2 = {
       labels: [
         <?php
-        $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
+        $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi_pjum order by year(transaksi_tanggal) asc");
         while ($t = mysqli_fetch_array($tahun)) {
         ?> "<?php echo $t['tahun']; ?>",
         <?php
@@ -163,10 +163,10 @@
           highlightStroke: "rgba(220,220,220,1)",
           data: [
             <?php
-            $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
+            $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi_pjum order by year(transaksi_tanggal) asc");
             while ($t = mysqli_fetch_array($tahun)) {
               $thn = $t['tahun'];
-              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi where transaksi_jenis='Pemasukan' and year(transaksi_tanggal)='$thn'");
+              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pemasukan from transaksi_pjum where and year(transaksi_tanggal)='$thn'");
               $pem = mysqli_fetch_assoc($pemasukan);
               $total = $pem['total_pemasukan'];
               if ($pem['total_pemasukan'] == "") {
@@ -186,10 +186,10 @@
           highlightStroke: "rgba(254, 29, 29, 0)",
           data: [
             <?php
-            $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
+            $tahun = mysqli_query($koneksi, "select distinct year(transaksi_tanggal) as tahun from transaksi_pjum order by year(transaksi_tanggal) asc");
             while ($t = mysqli_fetch_array($tahun)) {
               $thn = $t['tahun'];
-              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi where transaksi_jenis='Pengeluaran' and year(transaksi_tanggal)='$thn'");
+              $pemasukan = mysqli_query($koneksi, "select sum(transaksi_nominal) as total_pengeluaran from transaksi_pjum where and year(transaksi_tanggal)='$thn'");
               $pem = mysqli_fetch_assoc($pemasukan);
               $total = $pem['total_pengeluaran'];
               if ($pem['total_pengeluaran'] == "") {

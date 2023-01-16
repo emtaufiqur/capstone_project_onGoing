@@ -150,7 +150,7 @@
   var barChartData2 = {
     labels : [
     <?php 
-    $tahun = mysqli_query($koneksi,"select distinct year(transaksi_tanggal) as tahun from transaksi order by year(transaksi_tanggal) asc");
+    $tahun = mysqli_query($koneksi,"select distinct year(transaksi_tanggal) as tahun from transaksi_pjum order by year(transaksi_tanggal) asc");
     while($t = mysqli_fetch_array($tahun)){
       ?>
       "<?php echo $t['tahun']; ?>",

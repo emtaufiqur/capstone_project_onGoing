@@ -150,10 +150,10 @@
                     }
                     while($d = mysqli_fetch_array($data)){
 
-                      if($d['transaksi_jenis'] == "Pemasukan"){
+                      if($d['transaksi_nominal']){
                         $total_pemasukan += $d['transaksi_nominal'];
-                      }elseif($d['transaksi_jenis'] == "Pengeluaran"){
-                        $total_pengeluaran += $d['transaksi_nominal'];
+                      }else if($d['nominal_pjum']){
+                        $total_pengeluaran += $d['nominal_pjum'];
                       }
                       ?>
                       <tr>
@@ -163,7 +163,7 @@
                         <td><?php echo $d['transaksi_keterangan']; ?></td>
                         <td class="text-center">
                           <?php 
-                          if($d['transaksi_jenis'] == "Pemasukan"){
+                          if($d['transaksi_nominal']){
                             echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
                           }else{
                             echo "-";
@@ -172,8 +172,8 @@
                         </td>
                         <td class="text-center">
                           <?php 
-                          if($d['transaksi_jenis'] == "Pengeluaran"){
-                            echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
+                          if($d['nominal_pjum']){
+                            echo "Rp. ".number_format($d['nominal_pjum'])." ,-";
                           }else{
                             echo "-";
                           }

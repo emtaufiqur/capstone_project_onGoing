@@ -1,7 +1,7 @@
 <?php 
 include '../koneksi.php';
 $id = $_POST['id'];
-// $id_pjum = $_POST['id_pjum'];
+$foto_pjum = $_POST['transaksi_foto_pjum'];
 // $tanggal  = $_POST['tanggal'];
 $tanggal_pjum  = $_POST['tanggal_pjum'];
 // $kategori  = $_POST['kategori'];
@@ -16,7 +16,7 @@ $filename = $_FILES['trnfoto']['name'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
 if($filename == ""){
-	mysqli_query($koneksi, "update transaksi_pjum set transaksi_tanggal_pjum='$tanggal_pjum', nominal_pjum='$nominal_pjum' where transaksi_id='$id'") or die(mysqli_error($koneksi));
+	mysqli_query($koneksi, "update transaksi_pjum set transaksi_foto_pjum='$foto_pjum', transaksi_tanggal_pjum='$tanggal_pjum', nominal_pjum='$nominal_pjum' where transaksi_id='$id'") or die(mysqli_error($koneksi));
 	header("location:transaksi_pjum.php?alert=berhasilupdate");
 }else{
 	$ext = pathinfo($filename, PATHINFO_EXTENSION);

@@ -192,11 +192,6 @@
                                                             <div class="modal-body">
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <!-- <label>Id PUM</label> -->
-                                                            <input type="hidden" style="width:100%" name="id" required="required" class="form-control" value="<?php echo $d['transaksi_id'] ?>">
-                                                            </div>
-
-                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
                                                             <!-- <label>Id PJUM</label> -->
                                                             <input type="hidden" style="width:100%" name="id" required="required" class="form-control" value="<?php echo $d['transaksi_id'] ?>">
                                                             </div>
@@ -224,11 +219,6 @@
                                                             </div>
 
                                                             <div class="form-group" style="width:100%;margin-bottom:20px">
-                                                            <!-- <label>Nominal PUM</label> -->
-                                                            <input type="hidden" style="width:100%" name="nominal" disabled required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['transaksi_nominal'] ?>">
-                                                            </div>
-
-                                                            <div class="form-group" style="width:100%;margin-bottom:20px">
                                                             <label>Nominal PJUM</label>
                                                             <input type="number" style="width:100%" name="nominal_pjum" required="required" class="form-control" placeholder="Masukkan Nominal .." value="<?php echo $d['nominal_pjum'] ?>">
                                                             </div>
@@ -242,7 +232,7 @@
                                                             <label>Upload File</label>
                                                             <input type="file" name="trnfoto" class="form-control"><br>
                                                             <!-- <small><?php echo $d['transaksi_foto_pjum'] ?></small> -->
-                                                            <p class="help-block">Bila File <?php echo "<a class='fancybox btn btn-xs btn-primary' target=_blank href='../gambar/bukti/$d[transaksi_foto_pjum]'>$d[transaksi_foto_pjum]</a>"; ?> tidak dirubah kosongkan saja</p>
+                                                            <p class="help-block">Harap Upload<?php echo "<a class='' target=_blank href='../gambar/bukti/$d[transaksi_foto_pjum]'>$d[transaksi_foto_pjum]</a>"; ?> Bukti PJUM</p>
                                                             </div>
                                                             
                                                         </div>

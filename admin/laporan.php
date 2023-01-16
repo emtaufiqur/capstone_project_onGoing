@@ -152,7 +152,7 @@
 
                       if($d['transaksi_nominal']){
                         $total_pemasukan += $d['transaksi_nominal'];
-                      }else if($d['nominal_pjum']){
+                      }elseif($d['nominal_pjum']){
                         $total_pengeluaran += $d['nominal_pjum'];
                       }
                       ?>

@@ -23,12 +23,13 @@
           <div class="inner">
             <?php 
             $tanggal = date('Y-m-d');
-            $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) FROM transaksi_pjum WHERE transaksi_tanggal='$tanggal'");
+            $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi_pjum WHERE transaksi_tanggal='$tanggal'");
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
-            <!-- <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['transaksi_nominal'])." ,-" ?></h4> -->
+            <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
             <p><b>PUM</b> Hari Ini</p>
           </div>
+
           <div class="icon">
             <i class="ion ion-stats-bars"></i>
           </div>
@@ -41,10 +42,10 @@
           <div class="inner">
             <?php 
             $bulan = date('m');
-            $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) FROM transaksi_pjum WHERE month(transaksi_tanggal)='$bulan'");
+            $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi_pjum WHERE month(transaksi_tanggal)='$bulan'");
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
-            <!-- <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4> -->
+            <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
             <p><b>PUM</b> Bulan Ini</p>
           </div>
           <div class="icon">
@@ -59,10 +60,10 @@
           <div class="inner">
             <?php 
             $tahun = date('Y');
-            $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) FROM transaksi_pjum WHERE year(transaksi_tanggal)='$tahun'");
+            $pemasukan = mysqli_query($koneksi,"SELECT sum(transaksi_nominal) as total_pemasukan FROM transaksi_pjum WHERE year(transaksi_tanggal)='$tahun'");
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
-            <!-- <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4> -->
+            <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['total_pemasukan'])." ,-" ?></h4>
             <p><b>PUM</b> Tahun Ini</p>
           </div>
           <div class="icon">
@@ -166,27 +167,6 @@
       </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- /.row -->

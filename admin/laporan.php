@@ -144,9 +144,9 @@
                     $total_pemasukan=0;
                     $total_pengeluaran=0;
                     if($kategori == "semua"){
-                      $data = mysqli_query($koneksi,"SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
+                      $data = mysqli_query($koneksi,"SELECT * FROM transaksi_pjum,kategori where kategori_id=transaksi_kategori and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
                     }else{
-                      $data = mysqli_query($koneksi,"SELECT * FROM transaksi,kategori where kategori_id=transaksi_kategori and kategori_id='$kategori' and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
+                      $data = mysqli_query($koneksi,"SELECT * FROM transaksi_pjum,kategori where kategori_id=transaksi_kategori and kategori_id='$kategori' and date(transaksi_tanggal)>='$tgl_dari' and date(transaksi_tanggal)<='$tgl_sampai'");
                     }
                     while($d = mysqli_fetch_array($data)){
 

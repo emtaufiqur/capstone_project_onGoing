@@ -255,7 +255,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <embed src="../gambar/bukti/<?php echo $d['transaksi_foto']; ?>" type="application/pdf" width="100%" height="400px" />
+                                    <embed src="../gambar/bukti/<?php echo $d['transaksi_foto_pjum']; ?>" type="application/pdf" width="100%" height="400px" />
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>

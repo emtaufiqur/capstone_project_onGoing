@@ -111,6 +111,7 @@
  								<?php
 									if ($d['nominal_pjum']) {
 										echo "Rp. " . number_format($d['nominal_pjum']) . " ,-";
+										$total_pengeluaran += $d['nominal_pjum'];
 									} else {
 										echo "-";
 									}

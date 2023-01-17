@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jan 2023 pada 07.56
+-- Waktu pembuatan: 16 Jan 2023 pada 17.13
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.1
 
@@ -78,7 +78,6 @@ INSERT INTO `p2d` (`p2d_id`, `p2d_tanggal`, `p2d_nominal`, `p2d_keterangan`, `ka
 
 CREATE TABLE `transaksi_pjum` (
   `transaksi_id` int(11) NOT NULL,
-  `transaksi_id_pjum` int(11) NOT NULL,
   `transaksi_tanggal` date NOT NULL,
   `transaksi_tanggal_pjum` date NOT NULL,
   `transaksi_kategori` int(11) NOT NULL,
@@ -86,17 +85,18 @@ CREATE TABLE `transaksi_pjum` (
   `nominal_pjum` int(11) NOT NULL,
   `transaksi_keterangan` text NOT NULL,
   `transaksi_tanggal_kebutuhan` date NOT NULL,
-  `transaksi_foto` varchar(255) NOT NULL
+  `transaksi_foto` varchar(255) NOT NULL,
+  `transaksi_foto_pjum` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data untuk tabel `transaksi_pjum`
 --
 
-INSERT INTO `transaksi_pjum` (`transaksi_id`, `transaksi_id_pjum`, `transaksi_tanggal`, `transaksi_tanggal_pjum`, `transaksi_kategori`, `transaksi_nominal`, `nominal_pjum`, `transaksi_keterangan`, `transaksi_tanggal_kebutuhan`, `transaksi_foto`) VALUES
-(23, 0, '2023-01-01', '0000-00-00', 6, 80000, 79000, 'Event Makan', '2023-01-15', '1528773944_559000016_contoh nota.jpg'),
-(25, 9, '2023-01-05', '2023-01-05', 1, 2500000, 1999, 'Petty Cash Urgent', '2023-01-09', '921433184_261520357_SWOT-Analysis01.jpg'),
-(34, 0, '2023-01-14', '0000-00-00', 1, 1000000, 0, 'Event Beli Marchendise', '2023-01-20', '1763594941_56028949_WhatsApp Image 2022-11-21 at 20.52.27.jpeg');
+INSERT INTO `transaksi_pjum` (`transaksi_id`, `transaksi_tanggal`, `transaksi_tanggal_pjum`, `transaksi_kategori`, `transaksi_nominal`, `nominal_pjum`, `transaksi_keterangan`, `transaksi_tanggal_kebutuhan`, `transaksi_foto`, `transaksi_foto_pjum`) VALUES
+(23, '2023-01-13', '2023-01-21', 5, 2000000, 800000, 'Event Mortar Utama', '2023-01-15', '639559449_3259_05.jpg', '434938873_3259_05.jpg'),
+(25, '2023-01-05', '2023-01-05', 1, 2500000, 2000000, 'Petty Cash Urgent', '2023-01-09', '921433184_261520357_SWOT-Analysis01.jpg', '689835371_324315146_56028949_WhatsApp Image 2022-11-21 at 20.52.27.jpeg'),
+(34, '2023-01-14', '2023-01-20', 1, 1000000, 900000, 'Event Beli Marchendise', '2023-01-20', '687261321_191820588_contoh faktur.jpg', '1683499554_52609220_353176356_Penguins.jpg');
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ ALTER TABLE `p2d`
 --
 ALTER TABLE `transaksi_pjum`
   ADD PRIMARY KEY (`transaksi_id`),
-  ADD KEY `transaksi_id_pjum` (`transaksi_id_pjum`);
+  ADD KEY `transaksi_id_pjum` (`transaksi_foto_pjum`);
 
 --
 -- Indeks untuk tabel `user`
@@ -170,7 +170,7 @@ ALTER TABLE `p2d`
 -- AUTO_INCREMENT untuk tabel `transaksi_pjum`
 --
 ALTER TABLE `transaksi_pjum`
-  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `transaksi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

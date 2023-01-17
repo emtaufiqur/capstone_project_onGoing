@@ -165,6 +165,7 @@
                           <?php 
                           if($d['transaksi_nominal']){
                             echo "Rp. ".number_format($d['transaksi_nominal'])." ,-";
+                            // $total_pemasukan += $d['transaksi_nominal'];
                           }else{
                             echo "-";
                           }
@@ -174,6 +175,7 @@
                           <?php 
                           if($d['nominal_pjum']){
                             echo "Rp. ".number_format($d['nominal_pjum'])." ,-";
+                            $total_pengeluaran += $d['nominal_pjum'];
                           }else{
                             echo "-";
                           }

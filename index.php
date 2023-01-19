@@ -20,7 +20,7 @@
 
       <center>
 
-        <h3><b><font color="white"> Sistem Informasi PUM, PJUM & P2D</font></b></h3>
+        <h4><b><font color="white"> Sistem Informasi PUM, PJUM & P2D</font></b></h4>
         <br />
         <?php
         if (isset($_GET['alert'])) {
